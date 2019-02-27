@@ -1,0 +1,31 @@
+#showBest{
+    display: flex;
+    flex-direction: column;
+
+}
+#hideBest{
+    display: none;
+}
+#showGood{
+    display: flex;
+    flex-direction: column;
+}
+#hideGood{
+    display: none;
+}
+#showOkay{
+    display: flex;
+    flex-direction: column;
+}
+#hideOkay{
+    display: none;
+}
+
+.breedImage{
+    width: 15vw;
+}
+
+#breedsDiv {
+    display: flex;
+    flex-direction: row;
+}

@@ -1,0 +1,1 @@
+SELECT * FROM animals WHERE type = 'dog' ORDER BY breed ASC

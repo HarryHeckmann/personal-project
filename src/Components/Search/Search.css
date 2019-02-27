@@ -1,0 +1,128 @@
+#SearchPageEmpty{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url('../../Images/search.jpg');
+    background-size: cover;
+}
+#SearchPage{
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url('../../Images/search.jpg');
+    background-size: cover;
+}
+.searchLinkDiv{
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 4vh;
+    border: 2px solid black;
+    border-radius: 9999em;
+}
+
+.searchLink{
+    align-self: center;
+    color: black;
+    text-decoration: none;
+}
+.searchLink::visited{
+    color: black;
+}
+.SearchLabel{
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 999em;
+}
+#locationId{
+    background-color: rgba(5,4,2,0);
+    border: none;
+}
+#locationId::placeholder{
+    color: black;
+}
+
+#SearchButton{
+    background-color: rgba(5,4,2,0);
+    border: 2px solid black;
+    padding: 12px;
+    border-radius: 999em;
+}
+#SearchBar{
+    height: 8vh;
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.selectClass{
+    position: relative;
+    background-color: rgba(5,4,2,0);
+    border: none;
+}
+.selectClass select {
+    display: none; /*hide original SELECT element: */
+  }
+
+
+  #PetDiv{
+      padding-top: 5vh;
+      height: 100vh;
+      overflow-y: scroll;
+      width: 100vw;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      color: white;
+  }
+  .petNameCity >h3 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    margin-right: 10px;
+    margin-bottom: 0px;
+  }
+  .petNameCity >h5 {
+    margin-bottom: 0px;
+  }
+
+  .petNameCity{
+    width: 10vw;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    justify-content: space-around;
+  }
+
+  #PetDivEmpty{
+    display: none;
+}
+
+  .myPetDiv{
+      cursor: pointer;
+      padding-top: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      border: 1px solid black;
+      margin-bottom: 5vh;
+      width: 20vw;
+  }
+
+  .petThumbnail > img{
+      width: 100%;
+      height: auto;
+  }
+

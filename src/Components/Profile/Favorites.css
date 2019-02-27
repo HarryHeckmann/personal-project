@@ -1,0 +1,42 @@
+#favoritesDiv{
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+#favoritesDiv::-webkit-scrollbar {
+    width: 2px;
+  }
+  
+#favoritesDiv::-webkit-scrollbar-track {
+/* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+}
+
+#favoritesDiv::-webkit-scrollbar-corner {
+-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+}
+
+#favoritesDiv::-webkit-scrollbar-thumb {
+background-color: rgb(37, 37, 37);
+outline: 0px solid slategrey;
+}
+.favoritesPetCard{
+    height: 15vh;
+    width: 18vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+#favoriteImage{
+    width: 5vw;
+}
+
+#favoriteDeleteImage {
+    width: 3vw;
+    opacity: 1;
+}
+#favoriteDeleteImageHide{
+    width: 3vw;
+    opacity: 0;
+}

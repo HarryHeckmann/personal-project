@@ -1,0 +1,124 @@
+#myPetsRow {
+    height: 25vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.myProfilePetDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 15vw;
+}
+
+#deleteImage{
+    width: 2vw;
+
+}
+#pets {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 5vh;
+    align-items: center;
+    color: black;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+    border: 1px solid black;
+    height: 30vh;
+}
+#petInputFile {
+    width: 10vw;
+}
+#my_pets {
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* align-items: space_aorund */
+}
+
+#plus {
+    width: 100px;
+    height: 100px;
+}
+#plus_hide {
+    display: none;
+}
+#pet_upload {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 225px;
+    height: 100px;
+}
+#pet_upload >.profileInputField {
+    text-align: center;
+}
+
+#pet_upload_hide {
+    display: none;
+}
+#addPetButtons{
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+#myPetImage1 {
+    width: 8vw;
+    border-radius: 10%;
+}
+
+#myPetImage2 {
+    /* margin-top: 5vh; */
+    width: 8vw;
+    -webkit-transform:rotateY(180deg);
+    border-radius: 10%;
+}
+#myPetImage3 {
+    /* margin-top: 5vh; */
+    width: 8vw;
+    -webkit-transform:rotate(180deg);
+    border-radius: 10%;
+}
+#myPetImage4 {
+    /* margin-top: 5vh; */
+    width: 8vw;
+    -webkit-transform:rotateY(180deg);
+    -webkit-transform:rotate(180deg);
+    border-radius: 10%;
+}
+#myPetImage5 {
+    /* margin-top: 5vh; */
+    width: 8vw;
+    -webkit-transform:rotateY(180deg);
+    -webkit-transform:rotate(-90deg);
+    border-radius: 10%;
+}
+#myPetImage6 {
+    /* margin-top: 5vh; */
+    width: 8vw;
+    -webkit-transform:rotate(90deg);
+    border-radius: 10%;
+}
+#myPetImage7 {
+    /* margin-top: 5vh; */
+    width: 8vw;
+    -webkit-transform:rotateY(180deg);
+    -webkit-transform:rotate(90deg);
+    border-radius: 10%;
+}
+#myPetImage8 {
+    /* margin-top: 5vh; */
+    width: 8vw;
+    -webkit-transform:rotate(-90deg);
+    border-radius: 10%;
+}

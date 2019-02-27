@@ -1,0 +1,243 @@
+#profile_page {
+    background-image: url('../../Images/WF8zph1.jpg');
+    width: 100vw;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+#profile_main {
+    display: flex;
+    flex-direction: row;
+}
+#profile_body {
+    width: 70vw;
+    height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+header {
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 2vw;
+}
+header > h2 {
+    color: black;
+    padding-right: 2vw;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+}
+#logout_div {
+    width: 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 4vh;
+    border: 1px solid black;
+    border-radius: 9999em;
+}
+#logout {
+    align-self: center;
+    color: black;
+    text-decoration: none;
+}
+#logout:visited{
+    color: black;
+}
+#profile_info {
+    /* padding-left: 3vw; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 70vw;
+    height: 30vh;
+}
+#profile_info_hide {
+    display: none;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+#profile_info_edit {
+    padding-left: 3vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 65vw;
+    height: 30vh;
+}
+#imageEdit {
+    height: 32vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#imageInputDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 15vh;
+}
+#profileInputFile {
+    width: 10vw;
+}
+.profileInputField {
+    color: black;
+    background-color: rgba(5,4,2,0);
+    border: none;
+    font-size: 120%;
+    height: 30px;
+}
+.profile_button {
+    height: 30px;
+    width: 70px;
+    border: 1px solid black;
+    border-radius: 9999em;
+    color: black;
+    background-color: rgba(5,4,2,0);
+}
+#bestButton{
+    height: 30px;
+    width: 120px;
+    border: 1px solid black;
+    border-radius: 9999em;
+    color: black;
+    background-color: rgba(5,4,2,0);
+}
+#profile_info_edit_hide {
+    display: none;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+.text_info {
+    margin-left: 2vw;
+    color: black; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 35vw;
+}
+#bestBreedsList {
+    margin-right: 3vw;
+    height: 15vh;
+    overflow: scroll;
+}
+#bestBreedsList::-webkit-scrollbar {
+    width: 2px;
+  }
+  
+#bestBreedsList::-webkit-scrollbar-track {
+/* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+}
+
+#bestBreedsList::-webkit-scrollbar-corner {
+-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+}
+
+#bestBreedsList::-webkit-scrollbar-thumb {
+background-color: rgb(37, 37, 37);
+/* outline: 0px solid slategrey; */
+}
+
+
+#profile_favorites {
+    border: 1px solid black;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 3vh;
+}
+
+#profile_bottom_links {
+    height: 20vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.profile_bottom_link_div {
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 4vh;
+    border: 1px solid black;
+    border-radius: 9999em;
+}
+.profile_link {
+    align-self: center;
+    color: black;
+    text-decoration: none;
+}
+.profile_link:visited {
+    color: black;
+}
+
+
+#profilePic1 {
+    /* margin-top: 5vh; */
+    width: 15vw;
+    border-radius: 10%
+}
+#profilePic2 {
+    /* margin-top: 5vh; */
+    width: 15vw;
+    -webkit-transform:rotateY(180deg);
+    border-radius: 10%
+}
+#profilePic3 {
+    /* margin-top: 5vh; */
+    width: 15vw;
+    -webkit-transform:rotate(180deg);
+    border-radius: 10%
+}
+#profilePic4 {
+    /* margin-top: 5vh; */
+    width: 15vw;
+    -webkit-transform:rotateY(180deg);
+    -webkit-transform:rotate(180deg);
+    border-radius: 10%
+}
+#profilePic5 {
+    /* margin-top: 5vh; */
+    width: 15vw;
+    -webkit-transform:rotateY(180deg);
+    -webkit-transform:rotate(-90deg);
+    border-radius: 10%
+}
+#profilePic6 {
+    /* margin-top: 5vh; */
+    width: 15vw;
+    -webkit-transform:rotate(90deg);
+    border-radius: 10%
+}
+#profilePic7 {
+    /* margin-top: 5vh; */
+    width: 15vw;
+    -webkit-transform:rotateY(180deg);
+    -webkit-transform:rotate(90deg);
+    border-radius: 10%
+}
+#profilePic8 {
+    /* margin-top: 5vh; */
+    width: 15vw;
+    -webkit-transform:rotate(-90deg);
+    border-radius: 10%
+}
+
