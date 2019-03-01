@@ -8,7 +8,8 @@ SET profile_img_exif = $2,
     profile_img = $3,
     firstname = $4,
     lastname = $5,
-    city = $6
+    city = $6,
+    email = $7
 WHERE 
     id = $1
 returning *;

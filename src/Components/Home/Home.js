@@ -18,6 +18,7 @@ class Home extends Component {
             lastname: '',
             city: '',
             imageUrl: '',
+            email: '',
 
             displayLogin: false,
             displayRegister: false,
@@ -58,10 +59,10 @@ class Home extends Component {
 
     handleRegister(e){
         e.preventDefault()
-        const {username, password, firstname, lastname, city, imageUrl} =  this.state
+        const {username, password, firstname, lastname, city, imageUrl, email} =  this.state
         console.log("ahhhhh")
             axios 
-            .post('/auth/register', {username, password, firstname, lastname, city, imageUrl})
+            .post('/auth/register', {username, password, firstname, lastname, city, imageUrl, email})
             .then(user => {
                 this.setState({username: '', password: '', firstname: '', lastname: '', city: '', imageUrl: ''})
                 this.setRedirect()
@@ -83,7 +84,7 @@ class Home extends Component {
     }
 
   render() {
-      const {displayLogin, displayRegister, username, password, firstname, lastname, city, imageUrl} =  this.state
+      const {displayLogin, displayRegister, username, password, firstname, lastname, city, imageUrl, email} =  this.state
     return (
       <div id='home'>
         {this.renderRedirect()}
@@ -161,7 +162,15 @@ class Home extends Component {
                         placeholder='City'
                         onChange={e => this.handleChange(e)}
                     ></input>
-                    
+                    <input
+                        className='inputField'
+                        name='email'
+                        required 
+                        type='text' 
+                        value={email}
+                        placeholder='Email Address'
+                        onChange={e => this.handleChange(e)}
+                    ></input>
                     <input type='submit' className='button' value='Register'></input>
                     </form>
                 {/* : */}

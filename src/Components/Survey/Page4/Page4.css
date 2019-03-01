@@ -1,22 +1,34 @@
-.wizard {
+.wizard4 {
     width: 100vw;
     height: 100vh;
     background-image: url('../../../Images/surveyBackground.jpg');
     background-size: cover;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
-.wizard > h1 {
+#SurveyHeader4{
+    width: 75vw;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    /* position: fixed; */
+    height: 8vh;
+    /* top: 0; */
+}
+
+.wizard4 > .surveyDiv4 > h1 {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     text-align: center;
 }
 
-.surveyDiv{
-    height: 50vh;
+.surveyDiv4{
+    margin-top: 25vh;
+    /* height: 50vh; */
     width: 50vw;
     background-image: radial-gradient(rgba(5,4,2,.3), rgba(5,4,2,0));
     display: flex;
@@ -24,7 +36,7 @@
     justify-content: space-around;
     align-items: center;
 }
-.surveyButtons{
+.surveyButtons4{
     width: 50vw;
     display: flex;
     flex-direction: row;
@@ -58,7 +70,7 @@
     font-weight: bold;
     font-size: 100%;
 }
-#survey_links_div {
+#survey_links_div4 {
     height: 5vh;
     width: 50vw;
     display: flex;
@@ -66,19 +78,94 @@
     justify-content: space-around;
     align-items: center;
 }
-.survey_links {
+.survey_links4 {
     align-self: center;
     color: black;
     text-decoration: none;
     font-weight: bold;
     font-size: 150%;
 }
-.survey_links:hover {
+.survey_links4:hover {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-weight: bold;
     font-size: 160%;
 }
-.survey_links:visited {
+.survey_links4:visited {
     color: black;
+}
+
+@media (max-width: 800px){
+    .wizard4{
+        height: 150vh;
+        justify-content: flex-start;
+    }
+    .surveyDiv4{
+        margin-top: 10vh;
+        width: 90vw;
+    }
+    .surveyDiv4 > h1{
+        font-size: 150%;
+        margin-bottom: 5vh;
+        
+    }
+    #survey_links_div4{
+        width: 90vw;
+    }
+    .surveyButtons4{
+        width: 90vw;
+    }
+    .survey_links4{
+        font-size: 120%;
+    }
+}
+@media (max-width: 500px) and (max-height: 600px){
+    .wizard4{
+        height: 170vh;
+        justify-content: flex-start;
+    }
+}
+@media (max-height: 500px){
+    .wizard4{
+        height: 200vh;
+        justify-content: flex-start;
+    }
+    .surveyDiv4{
+        margin-top: 15vh;
+        width: 90vw;
+        /* height: 80vh;; */
+    }
+    .surveyDiv4 > h1{
+        font-size: 130%;
+        margin-bottom: 5vh;
+    }
+    #survey_links_div4{
+        margin-top: 5vh;
+        width: 90vw;
+    }
+    .surveyButtons4{
+        width: 90vw;
+    }
+}
+@media (max-height: 800px){
+    .wizard4{
+        height: 100vh;
+        justify-content: flex-start;
+    }
+    .surveyDiv4{
+        margin-top: 15vh;
+        width: 90vw;
+        /* height: 80vh;; */
+    }
+    .surveyDiv4 > h1{
+        font-size: 130%;
+        margin-bottom: 5vh;
+    }
+    #survey_links_div4{
+        margin-top: 5vh;
+        width: 90vw;
+    }
+    .surveyButtons4{
+        width: 90vw;
+    }
 }

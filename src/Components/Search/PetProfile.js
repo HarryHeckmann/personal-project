@@ -147,11 +147,24 @@ class PetProfile extends Component {
                 this.dataRefresh()
             })
         }
-        renderRedirect(){
-            if(this.state.redirect){
-                return <Redirect to={`/petprofile/${this.state.petId}`}/>
-            }
+    renderRedirect(){
+        if(this.state.redirect){
+            return <Redirect to={`/petprofile/${this.state.petId}`}/>
         }
+    }
+
+    contactShelter(){
+        const info = {
+            shelterEmail: this.state.shelterEmail,
+            petName: this.state.name,
+            breeds: this.state.breeds
+        }
+        axios
+            .post('/api/contact/shelter', {info})
+            .then(response => {
+                alert('Message Sent!')
+            })
+    }
 
     render(){
         return(
@@ -226,6 +239,7 @@ class PetProfile extends Component {
                                         <h2 style={{color: 'black'}}>{this.state.city} | {this.state.shelterName}</h2>
                                         <h3>{this.state.shelterEmail}</h3>
                                         <h3>{this.state.shelterPhone}</h3>
+                                        <button className='contactButton' onClick={() => this.contactShelter()}>Let Shelter Know You're Interested</button>
                                     </div>
                                 </div>
                                 <div id='leftBottom'>
@@ -242,17 +256,25 @@ class PetProfile extends Component {
                         </div>
                         <div id='PetProfileFooter'>
                             <h2 style={{color: 'black'}}>Other Animals At This Shelter</h2>
-                            <div id='testDiv'>
                                 <div className='otherShelterPetDiv'>
-                                    {this.state.otherPets.map((e, i) => (
-                                        <div className='myPetDiv' key={i} onClick={() => this.setRedirect(e.id.$t)}>
-                                            <img className='PetProfileFooterImg' src={e.media.photos.photo[1].$t}/>
-                                            <h4>{e.name.$t}</h4>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                            
+                                    
+                                    {this.state.otherPets 
+                                        ?
+                                            this.state.otherPets.map((e, i) => (
+                                                <div className='myPetDiv' key={i} onClick={() => this.setRedirect(e.id.$t)}>
+                                                    {e.media.photos
+                                                        ?
+                                                            <img className='PetProfileFooterImg' src={e.media.photos.photo[1].$t}/>
+                                                        :
+                                                        <img className='PetProfileFooterImg' src={require('../../Images/pet.png')} />
+                                                    }
+                                                    <h4>{e.name.$t}</h4>
+                                                </div>                                                        
+                                            ))
+                                        :
+                                            <div></div>
+                                    }
+                                </div>                            
                         </div>
                     </div>
                         

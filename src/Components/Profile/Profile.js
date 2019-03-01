@@ -19,6 +19,7 @@ class Profile extends Component {
             firstname: '',
             lastname: '',
             city: '',
+            email: '',
             best_breeds: [],
             profileImg: '',
             profileEXIF: '',
@@ -38,10 +39,15 @@ class Profile extends Component {
         axios
             .get('/api/user')
             .then(response => {
+                console.log(response)
                 const user = response.data[0]
-                let str = user.best_breeds.replace(/[{}"]/g, '')
-                let final = str.replace(/[,]/g, ', ')
-                this.setState({id: user.id, username: user.username, firstname: user.firstname, lastname: user.lastname, city: user.city, best_breeds: final, profileImg: user.profile_img, profileEXIF: user.profile_img_exif}
+                let str = []
+                let final = []
+                if(user.best_breeds){
+                    str = user.best_breeds.replace(/[{}"]/g, '')
+                    final = str.replace(/[,]/g, ', ')
+                }
+                this.setState({id: user.id, username: user.username, firstname: user.firstname, lastname: user.lastname, city: user.city, best_breeds: final, profileImg: user.profile_img, profileEXIF: user.profile_img_exif, email: user.email}
                     ,  () => {
                     if(!this.state.username){
                         this.props.history.push("/")
@@ -131,12 +137,13 @@ class Profile extends Component {
             firstname: this.state.firstname,
             lastname: this.state.lastname,
             city: this.state.city,
+            email: this.state.email
         }
         axios
             .put('/api/user', {newValues})
             .then(response => {
                 const user = response.data[0]
-                this.setState({id: user.id, username: user.username, firstname: user.firstname, lastname: user.lastname, city: user.city, perfect_breeds: user.perfect_breeds, profileImg: user.profile_img, profileEXIF: user.profile_img_exif})
+                this.setState({id: user.id, username: user.username, firstname: user.firstname, lastname: user.lastname, city: user.city, perfect_breeds: user.perfect_breeds, profileImg: user.profile_img, profileEXIF: user.profile_img_exif, email: user.email})
             })
             .catch(err => {
                 console.log(err)
@@ -164,7 +171,7 @@ class Profile extends Component {
     }
 
     render(){
-        const {username, firstname, lastname, city, best_breeds, profileImg, profileEXIF} = this.state 
+        const {username, firstname, lastname, city, best_breeds, profileImg, profileEXIF, email} = this.state 
         return(
             <div id='profile_page'>
                 <header id='ProfileHeader'>
@@ -180,6 +187,7 @@ class Profile extends Component {
                             <div className='text_info'>
                                 <h1>{firstname} {lastname}</h1>
                                 <h3>{city}</h3>
+                                <h3>{email}</h3>
                                 <h3 id='bestBreedsList'>My best breeds are {best_breeds}</h3>
                             </div>
                             <button className='profile_button' onClick={() => this.edit()}>Edit</button>
@@ -225,6 +233,15 @@ class Profile extends Component {
                                     type='text' 
                                     value={city}
                                     placeholder='City'
+                                    onChange={e => this.handleChange(e)}
+                                ></input>
+                                <input
+                                    className='profileInputField'
+                                    name='email'
+                                    required 
+                                    type='text' 
+                                    value={email}
+                                    placeholder='Email'
                                     onChange={e => this.handleChange(e)}
                                 ></input>
                             </div>

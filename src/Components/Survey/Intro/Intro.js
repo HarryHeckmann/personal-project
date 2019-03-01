@@ -6,7 +6,7 @@ import './Intro.css'
 export default function Intro(){
     return(
         <div id='intro_main'>
-            <header id='SearchHeader'>
+            <header id='SurveyHeader'>
                 <div className='searchLinkDiv'>
                     <Link className='searchLink' to='/'>Home</Link>
                 </div>

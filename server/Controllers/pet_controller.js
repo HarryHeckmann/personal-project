@@ -96,7 +96,7 @@ module.exports = {
                 return res.status(200).json(pets)
             }
             else{
-                console.log('womp')
+                res.status(500).json('Not Logged On')
             }
         }
         catch(err){

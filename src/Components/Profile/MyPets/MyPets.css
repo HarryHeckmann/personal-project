@@ -4,7 +4,23 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    overflow-x: scroll;
+    overflow: auto;
+}
+#myPetsRow::-webkit-scrollbar {
+    width: 2px;
+  }
+  
+#myPetsRow::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+#myPetsRow::-webkit-scrollbar-corner {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+}
+
+#myPetsRow::-webkit-scrollbar-thumb {
+    background-color: rgb(37, 37, 37);
+    outline: 0px solid slategrey;
 }
 .myProfilePetDiv {
     display: flex;

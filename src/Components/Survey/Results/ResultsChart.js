@@ -14,11 +14,23 @@ class ResultsChart extends Component {
             displayedList: 'Best',
 
             username: '',
-            password: ''
+            password: '',
+            width: 0,
+            height: 0
         }
+        this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
     }
     componentDidMount(){
         this.checkLogin()
+        this.updateWindowDimensions();
+        window.addEventListener('resize', this.updateWindowDimensions)
+    }
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.updateWindowDimensions);
+      }
+      
+    updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
     }
 
     checkLogin(){
@@ -75,21 +87,6 @@ class ResultsChart extends Component {
 
     render(){
         {this.renderRedirect()}
-        // const data = {
-        //     labels: ['Best', 'Good', 'Okay'],
-        //     datasets: [
-        //         {
-        //             // label: 'How the breeds stack up',
-        //             data: [this.props.Best.length, this.props.Good.length, this.props.Okay.length],
-        //             backgroundColor: [
-        //                 'rgba(125, 170, 146, 0.8)',
-        //                 // 'rgba(169, 221, 214, 0.8)',
-        //                 'rgba(252, 208, 161, 0.8)',
-        //                 'rgba(167, 101, 113, 0.8)'
-        //             ]
-        //         }
-        //     ]
-        // }
         const data2 = {
             labels: ['Friendly With Dogs', 'Friendly With Pets', 'Affection','Size', 'Grooming', 'Vocality', 'Energy', 'Training', 'Exercise'],
             datasets: [
@@ -123,11 +120,7 @@ class ResultsChart extends Component {
                     data: [this.props.bestAvg[0], this.props.bestAvg[1], this.props.bestAvg[2], this.props.bestAvg[3], this.props.bestAvg[4], this.props.bestAvg[5],this.props.bestAvg[6],this.props.bestAvg[7],this.props.bestAvg[8]],
                     backgroundColor: [
                         'rgba(125, 170, 146, 0.5)',
-                        // 'rgba(169, 221, 214, 0.8)',
-                        // 'rgba(252, 208, 161, 0.8)',
-                        // 'rgba(167, 101, 113, 0.8)'
                     ],
-                    // borderColor: 'rgba(125, 170, 146, 1)'
                     borderColor: 'rgba(5,4,2,0.8)'
                 }
             ]
@@ -137,62 +130,56 @@ class ResultsChart extends Component {
             
             <div id='ResultsChart'>
                 {this.renderRedirect()}
-                <div id='ResultsChartDiv'>
-                    {/* <Bar
-                    data = {data}
-                    onElementsClick={elems => {
-                        this.updateList(elems[0]._model.label)
-                        console.log(elems)
-                        }
-                    }   
-                    options={{maintainAspectRatio: true}}
-                    /> */}
-                    <Radar
-                    data = {data2}
-                    onElementsClick={elems => {
-                        // this.updateList(elems[0]._model.label)
-                        console.log(elems)
-                        }
-                    }
-                    // options={{maintainAspectRatio: true}}
-                    // options={{scale:{ticks: {min: 1}}}}
-                    options={{
-                        responsive: true,
-                        title: {
-                            display: true,
-                            text: 'Your Results!',
-                            fontFamily: 'Playfair Display',
-                            fontStyle: 'italic',
-                            fontSize: 46,
-                            fontColor: 'black',
-                            padding: 20
-                        },
-                        legend: {
-                            labels: {
-                                fontSize: 18,
-                                fontColor: 'black'
-                            },
-                            position: 'bottom'
-                        }, 
-                        scale: {
-                            ticks: {
-                                min: 1
-                            },
-                            pointLabels: {
-                                fontSize: 20, 
-                                fontColor: 'black'
-                            }
-                        },
-                        animation: {
-                            duration: 1000,
-                            easing: 'easeInQuart'
-                        } 
-                    }}
-                    // options={{}}
-                    // options={{animation: {animateScale: true}}}
-                    />
-                </div>
-                
+                {this.state.width > 800 
+                    ?
+                        <div id='ResultsChartDiv'>
+                            <Radar
+                                data = {data2}
+                                onElementsClick={elems => {
+                                    // this.updateList(elems[0]._model.label)
+                                    console.log(elems)
+                                    }
+                                }
+                                options={{maintainAspectRatio: false}}
+                                // options={{scale:{ticks: {min: 1}}}}
+                                options={{
+                                    responsive: true,
+                                    title: {
+                                        display: true,
+                                        text: 'Your Results!',
+                                        fontFamily: 'Playfair Display',
+                                        fontStyle: 'italic',
+                                        fontSize: 46,
+                                        fontColor: 'black',
+                                        padding: 20
+                                    },
+                                    legend: {
+                                        labels: {
+                                            fontSize: 18,
+                                            fontColor: 'black'
+                                        },
+                                        position: 'bottom',
+                                        fullWidth: false
+                                    }, 
+                                    scale: {
+                                        ticks: {
+                                            min: 1
+                                        },
+                                        pointLabels: {
+                                            fontSize: 20, 
+                                            fontColor: 'black'
+                                        }
+                                    },
+                                    animation: {
+                                        duration: 1000,
+                                        easing: 'easeInQuart'
+                                    } 
+                                }}
+                            />
+                        </div>
+                    :
+                        <div></div>
+                }
                 <div id='chartResultList'>
                     {/* <div id={this.state.displayedList == 'Best' ? 'showBest': 'hideBest'}> */}
                     <div className='BreedList'>

@@ -83,8 +83,8 @@ class Page2 extends Component {
         // const next = <pre id='next_link'>  Next  </pre>
         console.log(this.props.match)
         return(
-            <div className='wizard'>
-                <header id='SearchHeader'>
+            <div className='wizard2'>
+                <header id='SurveyHeader2'>
                     <div className='searchLinkDiv'>
                         <Link className='searchLink' to='/'>Home</Link>
                     </div>
@@ -92,24 +92,24 @@ class Page2 extends Component {
                         <Link className='searchLink' to='/profile'>Profile</Link>
                     </div>
                 </header>
-                <div className='surveyDiv'>
+                <div className='surveyDiv2'>
                     <h1>How much do you like cuddles?</h1>
-                    <div className='surveyButtons'>
+                    <div className='surveyButtons2'>
                         <button className={this.state.affectionClicked1 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedAffection(1)}>On Occassion</button>
                         <button className={this.state.affectionClicked2 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedAffection(2)}>Most Days</button>
                         <button className={this.state.affectionClicked3 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedAffection(3)}>Can't Get Enough</button>
                     </div>
                     <h1>Do you like big dogs or little dogs?</h1>
-                    <div className='surveyButtons'>
+                    <div className='surveyButtons2'>
                         <button className={this.state.sizeClicked1 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedSize(1)}>The smaller the better!</button>
                         <button className={this.state.sizeClicked2 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedSize(2)}>Medium is always a safe bet</button>
                         <button className={this.state.sizeClicked3 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedSize(3)}>The bigger the better!</button>
                         <button className={this.state.sizeClicked4 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedSize(4)}>Gimme Clifford</button>
                     </div>
-                    <div id='survey_links_div'>
-                        <Link className='survey_links' to='/survey/1'>Start Over</Link>
-                        <Link className='survey_links' to='/survey/1'>Previous</Link>
-                        <Link className='survey_links' to='/survey/3'>Continue</Link>
+                    <div id='survey_links_div2'>
+                        <Link className='survey_links2' to='/survey/1'>Start Over</Link>
+                        <Link className='survey_links2' to='/survey/1'>Previous</Link>
+                        <Link className='survey_links2' to='/survey/3'>Continue</Link>
                     </div>
                 </div>
             </div>

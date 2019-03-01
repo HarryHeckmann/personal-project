@@ -59,8 +59,8 @@ class Page1 extends Component {
     render(){
         console.log(this.props.match)
         return(
-            <div className='wizard'>
-                <header id='SearchHeader'>
+            <div className='wizard1'>
+                <header id='SurveyHeader1'>
                     <div className='searchLinkDiv'>
                         <Link className='searchLink' to='/'>Home</Link>
                     </div>
@@ -68,18 +68,18 @@ class Page1 extends Component {
                         <Link className='searchLink' to='/profile'>Profile</Link>
                     </div>
                 </header>
-                <div className='surveyDiv'>
+                <div className='surveyDiv1'>
                     <h1>Do you own any other dogs?</h1>
-                    <div className='surveyButtons'>
+                    <div className='surveyButtons1'>
                         <button className={this.state.dogsClicked2 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedDogs(2)}>Of Course!</button>
                         <button className={this.state.dogsClicked1 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedDogs(1)}>Nope!</button>
                     </div>
                     <h1>Do you own any other pets?</h1>
-                    <div className='surveyButtons'>
+                    <div className='surveyButtons1'>
                         <button className={this.state.petsClicked2 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedPets(2)}>Call me Dr. Dolittle!</button>
                         <button className={this.state.petsClicked1 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedPets(1)}>What am I, a zoo!?</button>
                     </div>
-                    <div id='survey_links_div'>
+                    <div id='survey_links_div1'>
                         <Link className='survey_links' to='/survey/1'>Start Over</Link>
                         <Link className='survey_links' to='/survey/2'>Next</Link>
                     </div>

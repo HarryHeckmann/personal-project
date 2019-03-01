@@ -13,7 +13,7 @@
 #intro_center {
     background-image: radial-gradient(rgba(5,4,2,.3), rgba(5,4,2,0));
     width: 50vw;
-    height: 30vh;
+    /* height: 30vh; */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -50,7 +50,7 @@ h2{
 .intro_links:visited {
     color: white;
 }
-#SearchHeader{
+#SurveyHeader{
     width: 75vw;
     display: flex;
     justify-content: space-around;
@@ -59,4 +59,37 @@ h2{
     position: fixed;
     height: 8vh;
     top: 0;
+}
+
+@media (max-width: 500px){
+    #intro_center{
+        margin-top: 25vh;
+        width: 80vw;
+    }
+    h2{
+        font-size: 110%;
+        margin-bottom: 5vh;
+    }
+    #intro_links_div{
+        width: 80vw;
+    }
+    #intro_main{
+        justify-content: flex-start;
+    }
+}
+@media (max-height: 500px){
+    #intro_center{
+        margin-top: 25vh;
+        width: 80vw;
+    }
+    h2{
+        font-size: 110%;
+        margin-bottom: 5vh;
+    }
+    #intro_links_div{
+        width: 80vw;
+    }
+    #intro_main{
+        justify-content: flex-start;
+    }
 }

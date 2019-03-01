@@ -1,22 +1,33 @@
-.wizard {
+.wizard3 {
     width: 100vw;
     height: 100vh;
     background-image: url('../../../Images/surveyBackground.jpg');
     background-size: cover;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
+#SurveyHeader3{
+    width: 75vw;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    /* position: fixed; */
+    height: 8vh;
+    /* top: 0; */
+}
 
-.wizard > h1 {
+.wizard3 > .surveyDiv3 > h1 {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     text-align: center;
 }
 
-.surveyDiv{
-    height: 50vh;
+.surveyDiv3{
+    margin-top: 25vh;
+    /* height: 50vh; */
     width: 50vw;
     background-image: radial-gradient(rgba(5,4,2,.3), rgba(5,4,2,0));
     display: flex;
@@ -24,7 +35,7 @@
     justify-content: space-around;
     align-items: center;
 }
-.surveyButtons{
+.surveyButtons3{
     width: 50vw;
     display: flex;
     flex-direction: row;
@@ -58,7 +69,7 @@
     font-weight: bold;
     font-size: 100%;
 }
-#survey_links_div {
+#survey_links_div3 {
     height: 5vh;
     width: 50vw;
     display: flex;
@@ -66,14 +77,14 @@
     justify-content: space-around;
     align-items: center;
 }
-.survey_links {
+.survey_links3 {
     align-self: center;
     color: black;
     text-decoration: none;
     font-weight: bold;
     font-size: 150%;
 }
-.survey_links:hover {
+.survey_links3:hover {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-weight: bold;
@@ -81,4 +92,50 @@
 }
 .survey_links:visited {
     color: black;
+}
+@media (max-width: 500px){
+    .wizard3{
+        height: 150vh;
+        justify-content: flex-start;
+    }
+    .surveyDiv3{
+        margin-top: 10vh;
+        width: 90vw;
+    }
+    .surveyDiv3 > h1{
+        font-size: 150%;
+        margin-bottom: 5vh;
+        
+    }
+    #survey_links_div3{
+        width: 90vw;
+    }
+    .surveyButtons3{
+        width: 90vw;
+    }
+    .survey_links3{
+        font-size: 120%;
+    }
+}
+@media (max-height: 500px){
+    .wizard3{
+        height: 150vh;
+        justify-content: flex-start;
+    }
+    .surveyDiv3{
+        margin-top: 15vh;
+        width: 90vw;
+        /* height: 80vh;; */
+    }
+    .surveyDiv3 > h1{
+        font-size: 130%;
+        margin-bottom: 5vh;
+    }
+    #survey_links_div3{
+        margin-top: 5vh;
+        width: 90vw;
+    }
+    .surveyButtons3{
+        width: 90vw;
+    }
 }

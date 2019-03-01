@@ -73,8 +73,8 @@ class Page3 extends Component {
     render(){
         console.log(this.props.match)
         return(
-            <div className='wizard'>
-                <header id='SearchHeader'>
+            <div className='wizard3'>
+                <header id='SurveyHeader3'>
                     <div className='searchLinkDiv'>
                         <Link className='searchLink' to='/'>Home</Link>
                     </div>
@@ -82,23 +82,23 @@ class Page3 extends Component {
                         <Link className='searchLink' to='/profile'>Profile</Link>
                     </div>
                 </header>
-                <div className='surveyDiv'>
+                <div className='surveyDiv3'>
                     <h1>How often are you willing to groom your dog?</h1>
-                    <div className='surveyButtons'>
+                    <div className='surveyButtons3'>
                         <button className={this.state.groomingClicked1 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedGrooming(1)}>As little as possible</button>
                         <button className={this.state.groomingClicked2 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedGrooming(2)}>Regularly</button>
                         <button className={this.state.groomingClicked3 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedGrooming(3)}>All the time!</button>
                     </div>
                     <h1>How much do you care about barking?</h1>
-                    <div className='surveyButtons'>
+                    <div className='surveyButtons3'>
                         <button className={this.state.vocalityClicked1 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedVocality(1)}>Make it Stop</button>
                         <button className={this.state.vocalityClicked2 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedVocality(2)}>Don't mind too much!</button>
                         <button className={this.state.vocalityClicked3 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedVocality(3)}>It's my backup vocals!</button>
                     </div>
-                    <div id='survey_links_div'>
-                        <Link className='survey_links' to='/survey/1'>Start Over</Link>
-                        <Link className='survey_links' to='/survey/2'>Previous</Link>
-                        <Link className='survey_links' to='/survey/4'>Continue</Link>
+                    <div id='survey_links_div3'>
+                        <Link className='survey_links3' to='/survey/1'>Start Over</Link>
+                        <Link className='survey_links3' to='/survey/2'>Previous</Link>
+                        <Link className='survey_links3' to='/survey/4'>Continue</Link>
                     </div>
                 </div>
             </div>

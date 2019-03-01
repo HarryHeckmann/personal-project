@@ -102,8 +102,8 @@ class Page4 extends Component {
     render(){
         // console.log(this.props.match)
         return(
-            <div className='wizard'>
-                <header id='SearchHeader'>
+            <div className='wizard4'>
+                <header id='SurveyHeader4'>
                     <div className='searchLinkDiv'>
                         <Link className='searchLink' to='/'>Home</Link>
                     </div>
@@ -111,30 +111,30 @@ class Page4 extends Component {
                         <Link className='searchLink' to='/profile'>Profile</Link>
                     </div>
                 </header>
-                <div className='surveyDiv'>
+                <div className='surveyDiv4'>
                     <h1>How often will the dog be left alone or crated?</h1>
-                    <div className='surveyButtons'>
+                    <div className='surveyButtons4'>
                         <button className={this.state.energyClicked1 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedEnergy(1)}>6-8 Hours per day</button>
                         <button className={this.state.energyClicked2 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedEnergy(2)}>A few hours per day</button>
                         <button className={this.state.energyClicked3 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedEnergy(3)}>Almost Never</button>
                     </div>
                     <h1>How much training experience do you have?</h1>
-                    <div className='surveyButtons'>
+                    <div className='surveyButtons4'>
                         <button className={this.state.trainingClicked1 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedTraining(1)}>It can't be that hard, right??</button>
                         <button className={this.state.trainingClicked2 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedTraining(2)}>Some</button>
                         <button className={this.state.trainingClicked3 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedTraining(3)}>I taught Cujo how to fetch</button>
                     </div>
                     <h1>How active are you?</h1>
-                    <div className='surveyButtons'>
+                    <div className='surveyButtons4'>
                         <button className={this.state.exerciseClicked1 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedExercise(1)}>I work out by using a remote</button>
                         <button className={this.state.exerciseClicked2 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedExercise(2)}>I exercise regurlarly</button>
                         <button className={this.state.exerciseClicked3 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedExercise(3)}>I'm practically a Subaru commercial</button>
                     </div>
                     <div>
-                        <div id='survey_links_div'>
-                            <Link className='survey_links' to='/survey/1'>Start Over</Link>
-                            <Link className='survey_links' to='/survey/3'>Previous</Link>
-                            <Link className='survey_links' to='/survey/results'>Complete</Link>
+                        <div id='survey_links_div4'>
+                            <Link className='survey_links4' to='/survey/1'>Start Over</Link>
+                            <Link className='survey_links4' to='/survey/3'>Previous</Link>
+                            <Link className='survey_links4' to='/survey/results'>Complete</Link>
                         </div>
                     </div>
                 </div>

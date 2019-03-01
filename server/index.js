@@ -5,17 +5,34 @@ const express = require("express");
 const { json } = require("body-parser");
 const massive = require('massive')
 const session = require('express-session')
+const nodemailer = require('nodemailer')
 const app = express();
-const {SERVERPORT, CONNECTION_STRING, SESSION_SECRET} = process.env;
+const {SERVERPORT, CONNECTION_STRING, SESSION_SECRET, USER, PASS} = process.env;
 const c = require('./Controllers/controller')
 const ac = require('./Controllers/auth_controller')
 const uc = require('./Controllers/user_controller')
 const pc = require('./Controllers/pet_controller')
 
-// app.use(cors({origin:true, credentials:true}))
+const transport = {
+    host: 'smtp.gmail.com',
+    auth: {
+      user: USER,
+      pass: PASS
+    }
+  }
+  
+  const transporter = nodemailer.createTransport(transport)
+  
+  transporter.verify((error, success) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Server is ready to take messages');
+    }
+  })
+
 app.use(json())
 app.use(cors())
-// app.use(express.static(path.join(__dirname, '../src')));
 
 app.use(
     session({
@@ -27,18 +44,6 @@ app.use(
         }
     })
 )
-
-
-// const whitelist = ['http://localhost:3000', 'http://localhost:5001','https://firebasestorage.googleapis.com/']
-// var corsOptions = {
-//   origin: function (origin, callback) {
-//     if (whitelist.indexOf(origin) !== -1 || !origin) {
-//       callback(null, true)
-//     } else {
-//       callback(new Error('Not allowed by CORS'))
-//     }
-//   }
-// }
 massive(process.env.CONNECTION_STRING)
     .then(dbInstance => {
         console.log('Database connected')

@@ -5,7 +5,7 @@ module.exports = {
     register: async (req, res) => {
         const db = req.app.get('db')
         console.log(req.body)
-        const {username, password, firstname, lastname, city, imageUrl} = req.body
+        const {username, password, firstname, lastname, city, imageUrl, email} = req.body
         const existingUser = await db.get_user(username)
         if(existingUser[0]){
             return res.status(401).json('Username taken')
@@ -13,10 +13,10 @@ module.exports = {
         else {
             const salt = bcrypt.genSaltSync(10)
             const hash = bcrypt.hashSync(password, salt)
-            const result = await db.register_user([username, hash, firstname, lastname, city, imageUrl])
+            const result = await db.register_user([username, hash, firstname, lastname, city, imageUrl, email])
             console.log(result)
             req.session.user = {username: result[0].username, id: result[0].id}
-            return res.status(201).json(req.session.user)
+            return res.status(200).json(req.session.user)
         }
     },
 

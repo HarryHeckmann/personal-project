@@ -151,6 +151,13 @@ background-color: rgb(37, 37, 37);
     padding: 5px;
     border-radius: 999em;
 }
+.contactButton{
+    width: 250px;
+    background-color: rgba(5,4,2,0);
+    border: 2px solid black;
+    padding: 5px;
+    border-radius: 999em;
+}
 
 .otherShelterPetDiv{
     display: flex;
@@ -267,7 +274,7 @@ background-color: rgb(37, 37, 37);
     }
     #PetProfileCenter{
         flex-direction: column;
-        height: 100vh;
+        height: 130vh;
         align-items: center;
     }
     #centerLeft{
@@ -302,25 +309,37 @@ background-color: rgb(37, 37, 37);
     #PetProfileFooter{
         margin-top: 3vh;
     }
+    .otherShelterPetDiv{
+        align-items: center;
+        flex-direction: column;
+        overflow: auto;
+        height: 25vh;
+    }
+    .myPetDiv{
+       min-height: 20vh;
+    }
 }
 
 @media (max-height: 700px){
     #petProfileHeader{
         height: 50vh;
     }
+    #petProfileHeaderLoggedIn{
+        height: 30vh;
+    }
     #fullDiv{
-        height: 250vh;
+        height: 210vh;
         display: flex;
         flex-direction: column;
         align-items: center
         /* justify-content: flex-start; */
     }
     #PetProfileFull{
-        height: 300vh;
+        height: 210vh;
         
     }#PetProfileCenter{
         flex-direction: column;
-        height: 150vh;
+        height: 140vh;
         width: 90vw;
         align-items: center;
     }
@@ -329,38 +348,18 @@ background-color: rgb(37, 37, 37);
     }
     #PetProfileFooter > h2 {
         font-size: 130%;
-        overflow: scroll;
+        overflow: hidden;
         /* height: 35vh; */
     }
     #PetProfileFooter {
-        height: 40vh;
-        align-items: center;
-        display: flex;
-        flex-direction: column;
     }
     .otherShelterPetDiv{
-        /* align-items: center; */
-        /* display: flex; */
+        align-items: center;
         flex-direction: column;
-        /* height: 40vh; */
-        /* width: 95vw; */
-        /* width: 90vw; */
-        /* justify-content: space-around; */
-        overflow-y: scroll;
-        
-
-    }
-    .testDiv{
-        overflow-y: scroll;
-        display: flex;
-        flex-direction: column;
+        overflow: auto;
         height: 30vh;
-        width: 95vw;
     }
     .myPetDiv{
-        display: flex;
-        flex-direction: column;
-        height: 50vh;
-        margin-top: 2vw;
+       min-height: 20vh;
     }
 }

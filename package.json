@@ -17,6 +17,7 @@
     "express-session": "^1.15.6",
     "firebase": "^5.8.2",
     "massive": "^5.7.5",
+    "nodemailer": "^5.1.1",
     "react": "^16.7.0",
     "react-chartjs-2": "^2.7.4",
     "react-dom": "^16.7.0",

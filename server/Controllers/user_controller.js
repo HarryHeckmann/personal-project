@@ -45,12 +45,12 @@ module.exports = {
 
     updateUser: async (req, res) => {
         try {
-            const {profile_image_exif, profile_img, firstname, lastname, city} = req.body.newValues
+            const {profile_image_exif, profile_img, firstname, lastname, city, email} = req.body.newValues
             const db = req.app.get('db')
             if(req.session.user){
                 console.log(req.body)
                 console.log(req.session.user.id)
-                const user = await db.update_user([+req.session.user.id, profile_image_exif, profile_img, firstname, lastname, city])
+                const user = await db.update_user([+req.session.user.id, profile_image_exif, profile_img, firstname, lastname, city, email])
                 // console.log(user)
                 return res.status(200).json(user)
             }

@@ -17,3 +17,12 @@
     height: 8vh;
     top: 0;
 }
+
+@media (max-width: 800px){
+    #resultsFullDiv{
+        height: 150vh;
+    }
+    #resultsHeader{
+        margin-top: 3vh;
+    }
+}
