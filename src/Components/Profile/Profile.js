@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 // import {Redirect} from 'react-router-dom'
 import axios from 'axios';
 import firebase from '../../firebase.js'
+import Loader from 'react-loader-spinner'
 
 
 import './Profile.css'
@@ -23,10 +24,13 @@ class Profile extends Component {
             profileEXIF: '',
         
             uploadEXIF: '',
+            uploadImage: '',
             selectedFile: '',
 
             editProfile: false,
-            editFavorites: false
+            editFavorites: false,
+
+            isLoading: false
         }
     }
   
@@ -60,28 +64,31 @@ class Profile extends Component {
         
     } 
     handleUpload (){
-        this.getOrientation(this.state.selectedFile, function(orientation) {
-            alert(orientation);
-            this.setState({uploadEXIF: orientation})
-       }.bind(this));
-        if(this.state.selectedFile){
-            const storageRef = firebase.storage().ref()
-            const imageFolderRef = storageRef.child('images/'+this.state.selectedFile.name)
-            const imageRef = storageRef.child(this.state.selectedFile.name)
-            const pic = this.state.selectedFile
-            const metadata = {
-                name: this.state.selectedFile.name,
+        this.setState({isLoading: true}, ()=> {
+            this.getOrientation(this.state.selectedFile, function(orientation) {
+                // alert(orientation);
+                this.setState({uploadEXIF: orientation})
+           }.bind(this));
+            if(this.state.selectedFile){
+                const storageRef = firebase.storage().ref()
+                const imageFolderRef = storageRef.child('images/'+this.state.selectedFile.name)
+                const imageRef = storageRef.child(this.state.selectedFile.name)
+                const pic = this.state.selectedFile
+                const metadata = {
+                    name: this.state.selectedFile.name,
+                }
+                imageFolderRef.put(pic, metadata).then(function(snapshot){
+                    imageFolderRef.getDownloadURL().then(url => {
+                        this.setState({uploadImage: url, isLoading: false})
+                        
+                    })
+                }.bind(this))
             }
-            imageFolderRef.put(pic, metadata).then(function(snapshot){
-                imageFolderRef.getDownloadURL().then(url => {
-                    this.setState({profileImg: url})
-                    
-                })
-            }.bind(this))
-        }
-        else {
-            alert('Please select a profile image')
-        }
+            else {
+                alert('Please select a profile image')
+            }
+        })
+        
     }
 
     getOrientation(file, callback) {
@@ -120,7 +127,7 @@ class Profile extends Component {
         e.preventDefault()
         const newValues = {
             profile_image_exif: this.state.uploadEXIF,
-            profile_img: this.state.profileImg,
+            profile_img: this.state.uploadImage,
             firstname: this.state.firstname,
             lastname: this.state.lastname,
             city: this.state.city,
@@ -160,7 +167,7 @@ class Profile extends Component {
         const {username, firstname, lastname, city, best_breeds, profileImg, profileEXIF} = this.state 
         return(
             <div id='profile_page'>
-                <header>
+                <header id='ProfileHeader'>
                     <h2>Logged in as {username}</h2>
                     <div id='logout_div'>
                         <Link id='logout' to='/' onClick={() => this.handleLogout()}>Logout</Link>
@@ -176,7 +183,7 @@ class Profile extends Component {
                                 <h3 id='bestBreedsList'>My best breeds are {best_breeds}</h3>
                             </div>
                             <button className='profile_button' onClick={() => this.edit()}>Edit</button>
-                            <button className='profile_button' id='bestButton' onClick={() => this.searchBest()}>Search For your Best Breeds</button>
+                            {/* <button className='profile_button' id='bestButton' onClick={() => this.searchBest()}>Search For your Best Breeds</button> */}
                         </div>
                         <form id={this.state.editProfile ? 'profile_info_edit' : 'profile_info_edit_hide'} onSubmit={(e) => this.editProfile(e)}>
                             <div id='imageEdit'>
@@ -221,13 +228,26 @@ class Profile extends Component {
                                     onChange={e => this.handleChange(e)}
                                 ></input>
                             </div>
-                            <button className='profile_button' onClick={(e) => this.discard(e)}>Discard</button>
-                            <input type='submit' className='profile_button' value='Update'></input>
+                            {this.state.isLoading 
+                            
+                                ?
+                                    <Loader 
+                                        type="Ball-Triangle"
+                                        color="black"
+                                        height="100"	
+                                        width="100"
+                                    />
+                                :
+                                    <div>
+                                        <button className='profile_button' onClick={(e) => this.discard(e)}>Discard</button>
+                                        <input type='submit' className='profile_button' value='Update'></input>
+                                    </div>
+                            }
                         </form>
                         <MyPets/>
                         <div id='profile_bottom_links'>
                             <div className='profile_bottom_link_div'>
-                                <Link className='profile_link' to='/quiz/page1'>Take Breed Quiz</Link>
+                                <Link className='profile_link' to='/survey/1'>Take Breed Quiz</Link>
                             </div>
                             <div className='profile_bottom_link_div'>
                                 <Link className='profile_link' to='/search'>Search For Pets</Link>

@@ -50,3 +50,13 @@ h2{
 .intro_links:visited {
     color: white;
 }
+#SearchHeader{
+    width: 75vw;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    position: fixed;
+    height: 8vh;
+    top: 0;
+}

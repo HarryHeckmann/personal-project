@@ -3,7 +3,8 @@
     width: 50vw;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    overflow-x: scroll;
 }
 .myProfilePetDiv {
     display: flex;
@@ -27,7 +28,8 @@
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-weight: 700;
-    border: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
     height: 30vh;
 }
 #petInputFile {
@@ -121,4 +123,56 @@
     width: 8vw;
     -webkit-transform:rotate(-90deg);
     border-radius: 10%;
+}
+@media (max-width: 600px){
+    #plus {
+        width: 50px;
+        height: 50px;
+    }
+    #my_pets {
+        width: 100vw;
+        align-items: center;
+        justify-content: space-around;
+    }
+    #myPetsRow {
+        overflow-x: visible;
+        overflow-y: scroll;
+    }
+    #myPetImage1 {
+        width: 25vw;
+        border-radius: 10%;
+    }
+    .myProfilePetDiv{
+        height: 28vh;
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+    .myProfilePetDiv >h4{
+        padding: 0px;
+        margin: 0px;
+    }
+    #petInputFile{
+        width: 50vw;
+    }
+    #myPetImage2 {
+        width: 25vw;
+    }
+    #myPetImage3 {
+        width: 25vw;
+    }
+    #myPetImage4 {
+        width: 25vw;
+    }
+    #myPetImage5 {
+        width: 25vw;
+    }
+    #myPetImage6 {
+        width: 25vw;
+    }
+    #myPetImage7 {
+        width: 25vw;
+    }
+    #myPetImage8 {
+        width: 25vw;
+    }
 }

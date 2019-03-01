@@ -168,40 +168,50 @@ class PetProfile extends Component {
                         </div>
                         
                     :
-                        <div>
-                            <div id='petProfileHeader'>
-                                <div id='petProfileLinkDiv'>
-                                    <Link id='petProfileLink' to='/search'>Return To Search</Link>
+                        <div id='fullDiv'>
+                            <div id={this.state.loggedIn ? 'petProfileHeaderLoggedIn' :'petProfileHeader'}>
+                                <div id='petProfileHeaderLinks'>
+                                    <div id='petProfileLinkDiv'>
+                                        <Link id='petProfileLink' to='/search'>Return To Search</Link>
+                                    </div>
+                                    {/* <div id='HomeProfleLink'> */}
+                                    <div id='petProfileLinkDiv'>
+                                        <Link className='searchLink' to='/'>Home</Link>
+                                    </div>
+                                    <div id='petProfileLinkDiv'>
+                                        <Link className='searchLink' to='/profile'>Profile</Link>
+                                    </div>
+                                    {/* </div> */}
+                                    {this.state.loggedIn
+                                        ? 
+                                        <button id='petProfileButton' onClick={() => this.addtoFavorites()}>Add to Favorites</button>
+                                        : 
+                                        <div id='PetProfileLoginDiv'>
+                                            <h1>Login to save this pet!</h1>
+                                            <form id='petProfileLoginForm' onSubmit={e => this.handleLogin(e, this.state.username, this.state.password)}>
+                                                <input
+                                                    className='petProfileInputField'
+                                                    name='username'
+                                                    required 
+                                                    type='text' 
+                                                    value={this.state.username}
+                                                    placeholder='Username'
+                                                    onChange={e => this.handleChange(e)}
+                                                ></input>
+                                                <input
+                                                    className='petProfileInputField'
+                                                    name='password'
+                                                    required 
+                                                    type='text' 
+                                                    value={this.state.password}
+                                                    placeholder='Password'
+                                                    onChange={e => this.handleChange(e)}
+                                                ></input>
+                                                <input className='PetProfileImageButton' type='submit' value='Login'></input>
+                                            </form>
+                                        </div>
+                                    }
                                 </div>
-                            {this.state.loggedIn
-                                ? 
-                                <button id='petProfileButton' onClick={() => this.addtoFavorites()}>Add to Favorites</button>
-                                : 
-                                <div>
-                                    <h1>Login to save this pet!</h1>
-                                    <form onSubmit={e => this.handleLogin(e, this.state.username, this.state.password)}>
-                                        <input
-                                            className='petProfileInputField'
-                                            name='username'
-                                            required 
-                                            type='text' 
-                                            value={this.state.username}
-                                            placeholder='Username'
-                                            onChange={e => this.handleChange(e)}
-                                        ></input>
-                                        <input
-                                            className='petProfileInputField'
-                                            name='password'
-                                            required 
-                                            type='text' 
-                                            value={this.state.password}
-                                            placeholder='Password'
-                                            onChange={e => this.handleChange(e)}
-                                        ></input>
-                                        <input className='PetProfileImageButton' type='submit' value='Login'></input>
-                                    </form>
-                                </div>
-                            }
                         </div>
                         <div id='PetProfileCenter'>
                             <div id='centerLeft'>
@@ -232,14 +242,17 @@ class PetProfile extends Component {
                         </div>
                         <div id='PetProfileFooter'>
                             <h2 style={{color: 'black'}}>Other Animals At This Shelter</h2>
-                            <div className='otherShelterPetDiv'>
-                                {this.state.otherPets.map((e, i) => (
-                                    <div className='myPetDiv' key={i} onClick={() => this.setRedirect(e.id.$t)}>
-                                        <img className='PetProfileFooterImg' src={e.media.photos.photo[1].$t}/>
-                                        <h4>{e.name.$t}</h4>
-                                    </div>
-                                ))}
+                            <div id='testDiv'>
+                                <div className='otherShelterPetDiv'>
+                                    {this.state.otherPets.map((e, i) => (
+                                        <div className='myPetDiv' key={i} onClick={() => this.setRedirect(e.id.$t)}>
+                                            <img className='PetProfileFooterImg' src={e.media.photos.photo[1].$t}/>
+                                            <h4>{e.name.$t}</h4>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
+                            
                         </div>
                     </div>
                         

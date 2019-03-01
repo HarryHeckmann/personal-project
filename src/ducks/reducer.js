@@ -17,7 +17,31 @@ const initialState = {
     sex: '',
     offset: 0,
 
-    pets: [],
+    pets: {
+        age: {
+            $t: ''
+        },
+        animal: {
+            $t: ''
+        },
+        breeds: '',
+        media: {
+            photos: {
+                photo: [{$t: ''},{$t: ''},{$t: ''},{$t: ''}]
+            }
+        },
+        name: {
+            $t: ''
+        },
+        contact: {
+            city: {
+                $t: ''
+            }
+        },
+        id: {
+            $t: ''
+        }
+    }
 
 }
 

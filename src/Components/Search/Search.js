@@ -62,7 +62,7 @@ class Search extends Component{
     render(){
         return(
             <div id={this.props.pets.length ? 'SearchPage' : 'SearchPageEmpty'}>
-                <header>
+                <header id='SearchHeader'>
                     <div className='searchLinkDiv'>
                         <Link className='searchLink' to='/'>Home</Link>
                     </div>
@@ -70,7 +70,7 @@ class Search extends Component{
                         <Link className='searchLink' to='/profile'>Profile</Link>
                     </div>
                 </header>
-                <div id='SearchBar'>
+                <div id={this.props.pets.length ? 'SearchBar' : 'SearchBarEmpty'}>
                     <label className='SearchLabel'>
                         <input id='locationId' type='text' name='location' onChange={(e) => this.props.updateLocation(e.target.value)} placeholder='Zipcode'></input>
                     </label>

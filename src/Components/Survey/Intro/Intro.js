@@ -6,6 +6,14 @@ import './Intro.css'
 export default function Intro(){
     return(
         <div id='intro_main'>
+            <header id='SearchHeader'>
+                <div className='searchLinkDiv'>
+                    <Link className='searchLink' to='/'>Home</Link>
+                </div>
+                <div className='searchLinkDiv'>
+                    <Link className='searchLink' to='/profile'>Profile</Link>
+                </div>
+            </header>
             <div id='intro_center'>
                 <h2>To find the perfect breed for your lifestyle, take this short quiz! If you'd rather just search all breeds, click the link below.</h2>
                 <div id='intro_links_div'>

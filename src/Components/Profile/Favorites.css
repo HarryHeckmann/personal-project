@@ -40,3 +40,60 @@ outline: 0px solid slategrey;
     width: 3vw;
     opacity: 0;
 }
+
+@media (max-width: 850px){
+    .favoritesPetCard{
+        height: 25vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        border-bottom: 1px solid black;
+        margin-bottom: 5vh;
+    }
+    #favoriteImage{
+        width: 10vw;;
+    }
+}
+@media (max-height: 635px){
+    .favoritesPetCard{
+        height: 40vh;
+    }
+}
+@media (max-width: 600px){
+    #pleaseGodWork{
+        display: flex;
+        flex-direction: row;
+        width: 80vw;
+    }
+    #favoritesDiv{
+        overflow-y: hidden;
+        overflow-x: scroll;
+        height: 35vh;
+    }
+    .favoritesPetCard{
+        height: 23vh;
+        margin-right: 10vw;
+        margin-bottom: 0;
+        border-bottom: none;
+        justify-content: space-between
+        /* border-left: 1px solid black;
+        border-right: 1px solid black; */
+    }
+    .favoritesPetCard > h3{
+        font-size: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .favoritesPetCard > h4{
+        margin: 0;
+        padding: 0;
+    }
+    #favoriteImage{
+        width: 15vw;;
+    }
+    #favoriteDeleteImageHide{
+        width: 5vw;
+        opacity: 1;
+    }
+}

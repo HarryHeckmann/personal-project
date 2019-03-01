@@ -10,7 +10,8 @@
     flex-direction: column;
 }
 
-#header {
+#homeHeader {
+    width: 100vw;
     background-color: rgba(5,4,2,0.08);
     height: 15vh;
     display: flex;
@@ -111,7 +112,7 @@
     border-color: white;
     border-radius: 9999em;
     height: 30px;  
-    width: 5vw;
+    width: 80px;
     align-self: center;
 }
 
@@ -142,7 +143,7 @@
     font-size: 50px;
 }
 #clickDiv {
-    width: 15vw;
+    width: 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -151,7 +152,7 @@
     border-radius: 9999em;
 }
 #click_here {
-    width: 20vw;
+    /* width: 20vw; */
     align-self: center;
     color: white;
     text-decoration: none;
@@ -196,17 +197,20 @@
     0% {
         opacity: 1;
         transform: scaleY(1);
-        width: 50vw
+        width: 50vw;
+        height: 10vh;
     }
     50% {
         transform: scaleY(1);
         width: 50vw;
+        height: 10vh;
         opacity: 0;
     }
     100% {
         opacity: 0;
         transform: scaleY(0);
         width: 0;
+        height: 0;
     }
 }
 
@@ -227,3 +231,58 @@
         width: 0;
     }
 }
+
+@media (max-width: 750px){
+    #homeHeader {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 25vh;
+    }
+    #register {
+        width: 100vw;
+    }
+    #notRegister {
+        height: 0;
+    }
+    #notLogin {
+        height: 0;
+    }
+  }
+  @media (max-width: 380px){
+    #homeHeader {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 32vh;
+    }
+
+    #register {
+        width: 100vw;
+        height: 15vh;
+    }
+    #notRegister {
+        height: 0;
+    }
+    #notLogin {
+        height: 0;
+    }
+    #main_text {
+        font-size: 220%
+    }
+    
+  }
+  @media (max-width: 330px){
+    .inputField {
+        font-size: 70%
+    }
+    #register {
+        height: 17vh;
+    }
+    #homeHeader {
+        height: 40vh;
+    }
+
+  }

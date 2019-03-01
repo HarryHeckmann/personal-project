@@ -87,7 +87,7 @@ class Home extends Component {
     return (
       <div id='home'>
         {this.renderRedirect()}
-        <header id='header'>
+        <header id='homeHeader'>
             <button className='headerButton' onClick={() => this.displayLogin()}>Login</button>
                 <div id='authForms'>
                 {/* {this.state.displayLogin && !this.state.displayRegister ?  */}
@@ -175,7 +175,7 @@ class Home extends Component {
             <div id='center'>
                 <h1 id='main_text'>Find your forever friend, today</h1>
                 <div id='clickDiv'>
-                    <Link id='click_here' to='survey/intro'>Click here to find out how</Link>
+                    <Link id='click_here' to='survey/intro'>Find Out How</Link>
                 </div>
             </div>
         </div>

@@ -17,6 +17,16 @@
     background-image: url('../../Images/search.jpg');
     background-size: cover;
 }
+#SearchHeader{
+    width: 75vw;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    position: fixed;
+    height: 8vh;
+    top: 0;
+}
 .searchLinkDiv{
     padding-left: 10px;
     padding-right: 10px;
@@ -56,6 +66,15 @@
     border-radius: 999em;
 }
 #SearchBar{
+    margin-top: 7vh;
+    height: 8vh;
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+#SearchBarEmpty{
     height: 8vh;
     width: 80vw;
     display: flex;
@@ -124,5 +143,63 @@
   .petThumbnail > img{
       width: 100%;
       height: auto;
+  }
+  #searchButtonCycleDiv{
+      width: 100vw;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+  }
+  
+  .SearchButtonCycle{
+    color: white;
+    border: 2px solid white;
+    background-color: rgba(5,4,2,0);
+    padding: 12px;
+    border-radius: 999em;
+  }
+
+  @media (max-width: 800px){
+    #SearchPageEmpty{
+        height: 150vh;
+        justify-content: flex-start;
+        background-position: center;
+        background-size: cover;
+        /* background-repeat: no-repeat; */
+    }
+    #SearchPage{
+        height: 150vh;
+        justify-content: flex-start;
+        background-position: center;
+        background-size: cover;
+    }
+    #SearchHeader{
+        width: 75vw;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        align-items: center;
+        position: unset;
+        height: 8vh;
+        top: 0; 
+        border-bottom: 1px solid black;
+        margin-block-end: 3vh;
+    }
+    #SearchBarEmpty{
+        width: 100vw;
+        flex-wrap: wrap;
+        height: 30vh;
+        align-items: flex-start;
+    }
+    #SearchBar{
+        flex-wrap: wrap;
+        height: 30vh;
+        width: 100vw;
+        align-items: flex-start;
+        margin-top: 0;
+    }
+    .myPetDiv{
+        width: 40vw;
+    }
   }
 

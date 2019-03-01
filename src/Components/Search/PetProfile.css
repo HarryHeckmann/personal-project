@@ -4,9 +4,14 @@
     background-image: url('../../Images/petProfile.jpg');
     background-size: cover;
 }
-
+#fullDiv{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
 #petProfileHeader{
-    height: 15vh;
+    height: 20vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -14,7 +19,40 @@
     padding-left: 10vw;
     padding-right: 10vw;
 }
+#petProfileHeaderLoggedIn{
+    display: flex;
+    height: 20vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 1px solid black;
+}
+#petProfileHeaderLinks{
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
 #petProfileLinkDiv {
+    width: 200px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 9999em;
+}
+#petProfileLink {
+    align-self: center;
+    color: black;
+    text-decoration: none;
+}
+#earchLinkDiv{
+    width: 200px;
     padding-left: 10px;
     padding-right: 10px;
     display: flex;
@@ -24,11 +62,7 @@
     border: 2px solid black;
     border-radius: 9999em;
 }
-#petProfileLink {
-    align-self: center;
-    color: black;
-    text-decoration: none;
-}
+
 #petProfileLink:visited {
     color: black;
 }
@@ -130,11 +164,13 @@ background-color: rgb(37, 37, 37);
 }
 
 #petProfileButton{
-    width: 120px;
+    width: 224px;
+    height: 34px;
     background-color: rgba(5,4,2,0);
     border: 2px solid black;
-    padding: 5px;
+    /* padding: 5px; */
     border-radius: 999em;
+    font-size: 100%; 
 }
 
 #denied{
@@ -150,4 +186,181 @@ background-color: rgb(37, 37, 37);
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+}
+
+@media (min-width: 451px) and (max-width: 1024px){
+    #PetProfileFull{
+        height: 150vh;
+        background-position: center;
+    }
+    #fullDiv{
+        height: 150vh;
+    }
+    #PetProfileLoginDiv{
+        width: 80vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    #PetProfileLoginDiv > h1{
+        width: 80vw;
+        text-align: center;
+    }
+    #PetProfileCenter{
+        flex-direction: column;
+        height: 100vh;
+        align-items: center;
+    }
+    #centerLeft{
+        width: 80vw;
+    }
+    #leftTop{
+        width: 80vw;
+    }
+    #leftBottom{
+        width: 80vw;
+        height: 20vh;
+    }
+    #centerRight{
+        width: 80vw;
+    }
+    .PetProfileImageButton{
+        margin-top: 3vh;
+    }
+}
+
+@media (max-width: 450px){
+    #PetProfileFull{
+        height: 200vh;
+        
+    }
+    #PetProfileLoginDiv{
+        width: 80vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    #PetProfileLoginDiv > h1{
+        width: 80vw;
+        text-align: center;
+    }
+    #petProfileLoginForm {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    #fullDiv{
+        height: 180vh;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: flex-start; */
+    }
+    #petProfileHeader{
+        margin-top: 3vh;
+        height: 40vh;
+    }
+    #PetProfileCenter{
+        flex-direction: column;
+        height: 100vh;
+        align-items: center;
+    }
+    #centerLeft{
+        width: 80vw;
+    }
+    .petProfileInfo > h2{
+        font-size: 150%
+    }
+    #leftTop{
+        width: 80vw;
+    }
+    #leftBottom{
+        width: 80vw;
+        height: 20vh;
+    }
+    #centerRight{
+        width: 80vw;
+    }
+    #petImageSlide{
+        width: 80vw;
+        height: inherit;
+        /* margin-bottom: 3vh; */
+    }
+    #PetProfileImageButtons{
+        width: 80vw;
+    }
+    .PetProfileImageButton{
+        height: 4vh;
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+    }
+    #PetProfileFooter{
+        margin-top: 3vh;
+    }
+}
+
+@media (max-height: 700px){
+    #petProfileHeader{
+        height: 50vh;
+    }
+    #fullDiv{
+        height: 250vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center
+        /* justify-content: flex-start; */
+    }
+    #PetProfileFull{
+        height: 300vh;
+        
+    }#PetProfileCenter{
+        flex-direction: column;
+        height: 150vh;
+        width: 90vw;
+        align-items: center;
+    }
+    .petProfileInfo > h3{
+        font-size: 100%
+    }
+    #PetProfileFooter > h2 {
+        font-size: 130%;
+        overflow: scroll;
+        /* height: 35vh; */
+    }
+    #PetProfileFooter {
+        height: 40vh;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .otherShelterPetDiv{
+        /* align-items: center; */
+        /* display: flex; */
+        flex-direction: column;
+        /* height: 40vh; */
+        /* width: 95vw; */
+        /* width: 90vw; */
+        /* justify-content: space-around; */
+        overflow-y: scroll;
+        
+
+    }
+    .testDiv{
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        height: 30vh;
+        width: 95vw;
+    }
+    .myPetDiv{
+        display: flex;
+        flex-direction: column;
+        height: 50vh;
+        margin-top: 2vw;
+    }
 }

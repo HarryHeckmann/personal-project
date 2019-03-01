@@ -4,41 +4,102 @@ import {connect} from 'react-redux'
 
 import {updateGrooming, updateVocality} from '../../../ducks/reducer'
 
-
+import './Page3.css'
 
 class Page3 extends Component {
+    constructor(){
+        super()
+        this.state = {
+            groomingClicked1: false,
+            groomingClicked2: false,
+            groomingClicked3: false,
+            vocalityClicked1: false,
+            vocalityClicked2: false,
+            vocalityClicked3: false,
+        }
+    }
+    clickedGrooming(e){
+        this.props.updateGrooming(e)
+        // console.log(this.prps)
+        if(e === 1){
+            this.setState({groomingClicked1: !this.state.groomingClicked1})
+            this.setState({groomingClicked2: false, groomingClicked3: false})
+        }
+        else if(e === 2){
+            this.setState({groomingClicked2: !this.state.groomingClicked2})
+            this.setState({groomingClicked1: false, groomingClicked3: false})
+        }
+        else{
+            this.setState({groomingClicked3: !this.state.groomingClicked3})
+            this.setState({groomingClicked2: false, groomingClicked1: false})
+        }
+    }
+
+    clickedVocality(e){
+        this.props.updateVocality(e)
+        if(e === 1){
+            this.setState({vocalityClicked1: !this.state.vocalityClicked1})
+            this.setState({vocalityClicked2: false, vocalityClicked3: false})
+        }
+        else if(e === 2){
+            this.setState({vocalityClicked2: !this.state.vocalityClicked2})
+            this.setState({vocalityClicked1: false, vocalityClicked3: false})
+        }
+        else{
+            this.setState({vocalityClicked3: !this.state.vocalityClicked3})
+            this.setState({vocalityClicked2: false, vocalityClicked1: false})
+        }
+    }
+    componentDidMount(){
+        if(this.props.grooming == 1){
+            this.setState({groomingClicked1: true})
+        }
+        else if(this.props.grooming == 2){
+            this.setState({groomingClicked2: true})
+        }
+        else if(this.props.grooming == 3){
+            this.setState({groomingClicked3: true})
+        }
+        if(this.props.vocality == 1){
+            this.setState({vocalityClicked1: true})
+        }
+        else if(this.props.vocality == 2){
+            this.setState({vocalityClicked2: true})
+        }
+        else if(this.props.vocality == 3){
+            this.setState({vocalityClicked3: true})
+        }
+    }
     render(){
         console.log(this.props.match)
         return(
             <div className='wizard'>
-                <h1>How often are you willing to groom your dog?</h1>
-                <div className='surveyButtons'>
-                    <button onClick={() => this.props.updateGrooming(1)}>Only when I have to</button>
-                    <button onClick={() => this.props.updateGrooming(2)}>Regularly</button>
-                    <button onClick={() => this.props.updateGrooming(3)}>I'm gonna start my own salon</button>
-                </div>
-                {/* <h1>How often are you willing to groom your dog?</h1>
-                <div className='surveyButtons'>
-                    <h3>Only when I have to</h3>
-                    <input type="range" id="affection" min="1" max="3"  step="1" onChange={(e) => this.props.updateGrooming(e.target.value)}></input>
-                    <h3>I'm gonna start my own salon</h3>
-                </div> */}
-                <h1>How much do you care about barking?</h1>
-                <div className='surveyButtons'>
-                    <button onClick={() => this.props.updateVocality(1)}>Maybe I should've got a fish</button>
-                    <button onClick={() => this.props.updateVocality(2)}>Don't mind too much!</button>
-                    <button onClick={() => this.props.updateVocality(3)}>It's just my backup vocals</button>
-                </div>
-                {/* <h1>How much do you care about barking?</h1>
-                <div className='surveyButtons'>
-                    <h3>Maybe I should've got a fish</h3>
-                    <input type="range" id="size" min="1" max="3" step="1" onChange={(e) => this.props.updateVocality(e.target.value)}></input>
-                    <h3>It's just my backup vocals</h3>
-                </div> */}
-                <div>
-                    <Link to='/survey/1'>Start Over</Link>
-                    <Link to='/survey/2'>Previous</Link>
-                    <Link to='/survey/4'>Next</Link>
+                <header id='SearchHeader'>
+                    <div className='searchLinkDiv'>
+                        <Link className='searchLink' to='/'>Home</Link>
+                    </div>
+                    <div className='searchLinkDiv'>
+                        <Link className='searchLink' to='/profile'>Profile</Link>
+                    </div>
+                </header>
+                <div className='surveyDiv'>
+                    <h1>How often are you willing to groom your dog?</h1>
+                    <div className='surveyButtons'>
+                        <button className={this.state.groomingClicked1 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedGrooming(1)}>As little as possible</button>
+                        <button className={this.state.groomingClicked2 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedGrooming(2)}>Regularly</button>
+                        <button className={this.state.groomingClicked3 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedGrooming(3)}>All the time!</button>
+                    </div>
+                    <h1>How much do you care about barking?</h1>
+                    <div className='surveyButtons'>
+                        <button className={this.state.vocalityClicked1 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedVocality(1)}>Make it Stop</button>
+                        <button className={this.state.vocalityClicked2 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedVocality(2)}>Don't mind too much!</button>
+                        <button className={this.state.vocalityClicked3 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedVocality(3)}>It's my backup vocals!</button>
+                    </div>
+                    <div id='survey_links_div'>
+                        <Link className='survey_links' to='/survey/1'>Start Over</Link>
+                        <Link className='survey_links' to='/survey/2'>Previous</Link>
+                        <Link className='survey_links' to='/survey/4'>Continue</Link>
+                    </div>
                 </div>
             </div>
         )

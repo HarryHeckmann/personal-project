@@ -1,0 +1,85 @@
+.wizard {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../../Images/surveyBackground.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.wizard > h1 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    text-align: center;
+}
+
+.surveyDiv{
+    height: 50vh;
+    width: 50vw;
+    background-image: radial-gradient(rgba(5,4,2,.3), rgba(5,4,2,0));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.surveyButtons{
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.surveyButton {
+    background-color: rgba(5,4,2,0);
+    color: black;
+    border-color: black;
+    border-radius: 9999em;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    height: 50px;  
+    width: 250px;
+    align-self: center;
+    font-weight: bold;
+    font-size: 100%;
+}
+.surveyButtonClicked {
+    background-color: rgba(5,4,2,7);
+    color: white;
+    border-color: black;
+    border-radius: 9999em;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    height: 50px;  
+    width: 250px;
+    align-self: center;
+    font-weight: bold;
+    font-size: 100%;
+}
+
+#survey_links_div {
+    height: 5vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.survey_links {
+    align-self: center;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 150%;
+}
+.survey_links:hover {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 160%;
+}
+.survey_links:visited {
+    color: black;
+}
