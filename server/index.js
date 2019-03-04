@@ -38,6 +38,8 @@ const transport = {
 app.use(json())
 app.use(cors())
 
+app.use( express.static( `${__dirname}/../build` ) )
+
 app.use(
     session({
         secret: SESSION_SECRET,
@@ -60,9 +62,6 @@ massive(CONNECTION_STRING)
 app.post('/auth/register', ac.register)
 app.post('/auth/login', ac.login)
 app.delete('/auth/logout', ac.logout)
-
-// app.options('/api/profile/exif', cors())
-// app.get('/api/profile/exif', uc.getProfileExif)
 
 app.post('/api/breed_results', pc.getBreedResults)
 app.post('/api/user/favorites', pc.updateFavorited)

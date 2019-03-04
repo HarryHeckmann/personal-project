@@ -22,7 +22,6 @@
     "react-chartjs-2": "^2.7.4",
     "react-dom": "^16.7.0",
     "react-exif-orientation-img": "^0.1.5",
-    "react-load-image": "^0.1.7",
     "react-loader": "^2.4.5",
     "react-loader-spinner": "^2.3.0",
     "react-redux": "^6.0.0",
