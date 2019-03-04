@@ -41,8 +41,8 @@ class PetProfile extends Component {
             .get(`/api/pet/${this.props.match.params.id}`)
             .then(response => {
                 if(response.data){
-                    const images = response.data.media.photos.photo.filter((e, i) => {
-                        const key = {i}
+                    response.data.media.photos.photo.filter((e, i) => {
+                        // const key = {i}
                         if(e.$t.match(/-x/g)){
                             this.state.pictures.push(e.$t)
                         }
@@ -51,12 +51,12 @@ class PetProfile extends Component {
                         axios
                             .get(`/api/shelter/${this.state.shelterId}`)
                             .then(response => {
-                                console.log(response.data)
+                                // console.log(response.data)
                                 this.setState({shelterName: response.data.name.$t, shelterEmail: response.data.email.$t, shelterPhone: response.data.phone.$t}, () => {
                                     axios
                                         .get(`/api/pets/shelter/${this.state.shelterId}`)
                                         .then(response => {
-                                            console.log(response.data)
+                                            // console.log(response.data)
                                             this.setState({otherPets: response.data})
                                         })
                                 })
@@ -79,7 +79,7 @@ class PetProfile extends Component {
                
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err)
                 this.setState({denied: true})
             })
         })
@@ -91,6 +91,9 @@ class PetProfile extends Component {
             .get('/api/user')
             .then(response => {
                 this.setState({loggedIn: true})
+            })
+            .catch(err => {
+                // console.log(err)
             })
     }
 
@@ -121,7 +124,7 @@ class PetProfile extends Component {
                 alert(`${this.state.name} saved to your profile!`)
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err)
             })
     }
 
@@ -134,7 +137,7 @@ class PetProfile extends Component {
                 this.checkLogin()
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err)
             })
     }
     handleChange(e){
@@ -154,15 +157,29 @@ class PetProfile extends Component {
     }
 
     contactShelter(){
-        const info = {
-            shelterEmail: this.state.shelterEmail,
-            petName: this.state.name,
-            breeds: this.state.breeds
-        }
         axios
-            .post('/api/contact/shelter', {info})
+            .get('/api/user')
             .then(response => {
-                alert('Message Sent!')
+                // console.log(response.data[0].firstname)
+                const info = {
+                    shelterEmail: this.state.shelterEmail,
+                    petName: this.state.name,
+                    breeds: this.state.breeds,
+                    firstName: response.data[0].firstname,
+                    lastName: response.data[0].lastname,
+                    userEmail: response.data[0].email
+                }
+                axios
+                .post('/api/contact/shelter', {info})
+                .then(response => {
+                    alert('Message Sent!')
+                })
+                .catch(err => {
+                    // console.log(err)
+                })
+            })
+            .catch(err => {
+                // console.log(err)
             })
     }
 
@@ -232,7 +249,7 @@ class PetProfile extends Component {
                                     <div className='petProfileInfo'>
                                         <h1>{this.state.name}</h1>
                                         <h3 style={{color: 'black'}}>{this.state.breeds}</h3>
-                                        <h3>{this.state.sex == 'M' ? "Male" : "Female"}</h3>
+                                        <h3>{this.state.sex === 'M' ? "Male" : "Female"}</h3>
                                         <h3>{this.state.age}</h3>
                                     </div>
                                     <div className='petProfileInfo'>
@@ -247,7 +264,7 @@ class PetProfile extends Component {
                                 </div>
                             </div>
                             <div id='centerRight'>
-                                <img id='petImageSlide' src={this.state.pictures[this.state.pictureIndex]}/>
+                                <img id='petImageSlide' alt='Pet' src={this.state.pictures[this.state.pictureIndex]}/>
                                 <div id='PetProfileImageButtons'>
                                     <button className='PetProfileImageButton' onClick={() => this.previous()}>Previous</button>
                                     <button className='PetProfileImageButton' onClick={() => this.next()}>Next</button>
@@ -264,9 +281,9 @@ class PetProfile extends Component {
                                                 <div className='myPetDiv' key={i} onClick={() => this.setRedirect(e.id.$t)}>
                                                     {e.media.photos
                                                         ?
-                                                            <img className='PetProfileFooterImg' src={e.media.photos.photo[1].$t}/>
+                                                            <img className='PetProfileFooterImg' alt='Other Pet' src={e.media.photos.photo[1].$t}/>
                                                         :
-                                                        <img className='PetProfileFooterImg' src={require('../../Images/pet.png')} />
+                                                        <img className='PetProfileFooterImg' alt='Other Pet Blank'src={require('../../Images/pet.png')} />
                                                     }
                                                     <h4>{e.name.$t}</h4>
                                                 </div>                                                        

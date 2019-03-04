@@ -1,4 +1,5 @@
 require('dotenv').config()
+const nodemailer = require('nodemailer')
 const axios = require('axios')
 const { json } = require("body-parser");
 const CircularJSON = require('circular-json')
@@ -12,7 +13,7 @@ module.exports ={
             
             .then(response => {
                 let json = CircularJSON.stringify(response.data.petfinder.breeds)
-                console.log(json)
+                // console.log(json)
                 res.send(json)
             })
             .catch(err => {
@@ -22,14 +23,14 @@ module.exports ={
 
     getPets: (req, res) => {
         const {animal, breed, size, sex, location, age, offset} = req.body
-        console.log(req.body)
-        console.log(animal)
+        // console.log(req.body)
+        // console.log(animal)
         axios
             .get(`http://api.petfinder.com/pet.find?key=${key}&animal=${animal}&breed=${breed}&size=${size}&sex=${sex}&location=${location}&age=${age}&offset=${offset}&count=20&format=json`)
             .then(response => {
                 let json = CircularJSON.stringify(response.data.petfinder.pets.pet)
                 // let woof = CircularJSON.stringify(response.data.petfinder.pets)
-                console.log(json)
+                // console.log(json)
                 res.send(json)
             })
             .catch(err => {
@@ -67,7 +68,7 @@ module.exports ={
                 console.log(response.data)
                 let json = CircularJSON.stringify(response.data.petfinder.shelter)
                 // let woof = CircularJSON.stringify(response.data.petfinder.pets)
-                console.log(json)
+                // console.log(json)
                 res.send(json)
             })
             .catch(err => {
@@ -81,11 +82,48 @@ module.exports ={
             .then(response => {
                 let json = CircularJSON.stringify(response.data.petfinder.pets.pet)
                 // let woof = CircularJSON.stringify(response.data.petfinder.pets)
-                console.log(json)
+                // console.log(json)
                 res.send(json)
             })
             .catch(err => {
                 console.log(err)
             })
+    },
+
+    contactShelter: (req, res, next) => {
+        const transport = {
+            host: 'smtp.gmail.com',
+            // port: 587,
+            // secure: false,
+            // requireTLS: true,
+            auth: {
+                user: process.env.MAIL_USER,
+                pass: process.env.MAIL_PASS
+            }
+          }
+        const transporter = nodemailer.createTransport(transport)
+        const {petName, breeds, shelterEmail, firstName, lastName, userEmail} = req.body.info
+
+        const content = `Hello, I am interested in the ${breeds.toLowerCase()} named ${petName}! Do you have any further information on them? Thank you, ${firstName} ${lastName}.`
+        
+        const mail = {
+            from: userEmail,
+            to: 'heckmann.harry@gmail.com',  //Change to email address that you want to receive messages on
+            subject: `Interested in ${petName}`,
+            text: content,
+            replyTo: userEmail
+        }
+        
+        transporter.sendMail(mail, (err, data) => {
+            if (err) {
+            res.json({
+                msg: 'fail'
+            })
+            } else {
+            res.json({
+                msg: 'success'
+            })
+            }
+        })
     }
 }

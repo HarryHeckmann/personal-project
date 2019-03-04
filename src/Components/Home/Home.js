@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom'
 import axios from 'axios';
-import firebase from '../../firebase.js'
 import {Link} from 'react-router-dom'
 
 import './Home.css'
@@ -31,7 +30,7 @@ class Home extends Component {
     }
 
     setRedirect(){
-        console.log(this.state.redirect)
+        // console.log(this.state.redirect)
         this.setState({redirect: true})
     }
     renderRedirect(){
@@ -53,7 +52,7 @@ class Home extends Component {
                 this.setRedirect()
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err)
             })
     }
 
@@ -68,14 +67,14 @@ class Home extends Component {
                 this.setRedirect()
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err)
             })
     }
 
     displayLogin(){
         this.setState({displayLogin: !this.state.displayLogin})
         this.setState({displayRegister: false})
-        console.log(this.state.displayLogin)
+        // console.log(this.state.displayLogin)
     }
 
     displayRegister(){

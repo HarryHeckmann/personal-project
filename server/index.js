@@ -7,7 +7,7 @@ const massive = require('massive')
 const session = require('express-session')
 const nodemailer = require('nodemailer')
 const app = express();
-const {SERVERPORT, CONNECTION_STRING, SESSION_SECRET, USER, PASS} = process.env;
+const {SERVERPORT, CONNECTION_STRING, SESSION_SECRET, MAIL_USER, MAIL_PASS} = process.env;
 const c = require('./Controllers/controller')
 const ac = require('./Controllers/auth_controller')
 const uc = require('./Controllers/user_controller')
@@ -15,15 +15,19 @@ const pc = require('./Controllers/pet_controller')
 
 const transport = {
     host: 'smtp.gmail.com',
+    // port: 587,
+    // secure: false,
+    // requireTLS: true,
     auth: {
-      user: USER,
-      pass: PASS
+        user: MAIL_USER,
+        pass: MAIL_PASS
     }
   }
   
   const transporter = nodemailer.createTransport(transport)
   
   transporter.verify((error, success) => {
+    //   console.log(MAIL_USER, MAIL_PASS)
     if (error) {
       console.log(error);
     } else {
@@ -44,7 +48,7 @@ app.use(
         }
     })
 )
-massive(process.env.CONNECTION_STRING)
+massive(CONNECTION_STRING)
     .then(dbInstance => {
         console.log('Database connected')
         app.set('db', dbInstance)
@@ -77,6 +81,9 @@ app.put('/api/user', uc.updateUser)
 app.put('/api/user/pets', uc.updateUserPets)
 app.put('/api/user/breeds', uc.saveBestBreeds)
 app.delete('/api/deletepet/:id', uc.deletePet)
+
+
+.post('/api/contact/shelter', c.contactShelter)
 
 app.listen(SERVERPORT, () => {
     console.log(`Listening on ${SERVERPORT}`)})

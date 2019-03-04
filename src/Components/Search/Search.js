@@ -57,6 +57,9 @@ class Search extends Component{
                 this.props.updatePets(response.data)
                 // this.setState({displayResults: true})
             })
+            .catch(err => {
+                // console.log(err)
+            })
     }
 
     render(){

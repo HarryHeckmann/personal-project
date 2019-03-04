@@ -42,16 +42,16 @@ class Page1 extends Component {
         }
     }
     componentDidMount(){
-        if(this.props.friendly_dogs == 1){
+        if(this.props.friendly_dogs === 1){
             this.setState({dogsClicked1: true})
         }
-        else if(this.props.friendly_dogs == 2){
+        else if(this.props.friendly_dogs === 2){
             this.setState({dogsClicked2: true})
         }
-        if(this.props.friendly_pets == 1){
+        if(this.props.friendly_pets === 1){
             this.setState({petsClicked1: true})
         }
-        else if(this.props.friendly_pets == 2){
+        else if(this.props.friendly_pets === 2){
             this.setState({petsClicked2: true})
         }
     }

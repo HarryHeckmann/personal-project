@@ -56,25 +56,25 @@ class Page2 extends Component {
         }
     }
     componentDidMount(){
-        if(this.props.affection == 1){
+        if(this.props.affection === 1){
             this.setState({affectionClicked1: true})
         }
-        else if(this.props.affection == 2){
+        else if(this.props.affection === 2){
             this.setState({affectionClicked2: true})
         }
-        else if(this.props.affection == 3){
+        else if(this.props.affection === 3){
             this.setState({affectionClicked3: true})
         }
-        if(this.props.size == 1){
+        if(this.props.size === 1){
             this.setState({sizeClicked1: true})
         }
-        else if(this.props.size == 2){
+        else if(this.props.size === 2){
             this.setState({sizeClicked2: true})
         }
-        else if(this.props.size == 3){
+        else if(this.props.size === 3){
             this.setState({sizeClicked3: true})
         }
-        else if(this.props.size == 4){
+        else if(this.props.size === 4){
             this.setState({sizeClicked4: true})
         }
     }

@@ -51,22 +51,22 @@ class Page3 extends Component {
         }
     }
     componentDidMount(){
-        if(this.props.grooming == 1){
+        if(this.props.grooming === 1){
             this.setState({groomingClicked1: true})
         }
-        else if(this.props.grooming == 2){
+        else if(this.props.grooming === 2){
             this.setState({groomingClicked2: true})
         }
-        else if(this.props.grooming == 3){
+        else if(this.props.grooming === 3){
             this.setState({groomingClicked3: true})
         }
-        if(this.props.vocality == 1){
+        if(this.props.vocality === 1){
             this.setState({vocalityClicked1: true})
         }
-        else if(this.props.vocality == 2){
+        else if(this.props.vocality === 2){
             this.setState({vocalityClicked2: true})
         }
-        else if(this.props.vocality == 3){
+        else if(this.props.vocality === 3){
             this.setState({vocalityClicked3: true})
         }
     }

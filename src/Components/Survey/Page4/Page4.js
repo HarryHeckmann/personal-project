@@ -71,31 +71,31 @@ class Page4 extends Component {
     }
 
     componentDidMount(){
-        if(this.props.energy == 1){
+        if(this.props.energy === 1){
             this.setState({energyClicked1: true})
         }
-        else if(this.props.energy == 2){
+        else if(this.props.energy === 2){
             this.setState({energyClicked2: true})
         }
-        else if(this.props.energy == 3){
+        else if(this.props.energy === 3){
             this.setState({energyClicked3: true})
         }
-        if(this.props.training == 1){
+        if(this.props.training === 1){
             this.setState({trainingClicked1: true})
         }
-        else if(this.props.training == 2){
+        else if(this.props.training === 2){
             this.setState({trainingClicked2: true})
         }
-        else if(this.props.training == 3){
+        else if(this.props.training === 3){
             this.setState({trainingClicked3: true})
         }
-        if(this.props.exercise == 1){
+        if(this.props.exercise === 1){
             this.setState({exerciseClicked1: true})
         }
-        else if(this.props.exercise == 2){
+        else if(this.props.exercise === 2){
             this.setState({exerciseClicked2: true})
         }
-        else if(this.props.exercise == 3){
+        else if(this.props.exercise === 3){
             this.setState({exerciseClicked3: true})
         }
     }

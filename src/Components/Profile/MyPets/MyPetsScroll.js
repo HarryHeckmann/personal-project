@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios';
-import firebase from '../../../firebase.js'
+// import firebase from '../../../firebase.js'
 
 import './MyPets.css'
 
@@ -14,7 +14,7 @@ class MyPetsScroll extends Component {
         }
     }
     componentDidMount(){
-        console.log(this.props.pets)
+        // console.log(this.props.pets)
         this.setState({pets: this.props.pets})
     }
     componentDidUpdate(prevProps, prevState){
@@ -42,9 +42,9 @@ class MyPetsScroll extends Component {
                     <div className='myProfilePetDiv' key={i} onMouseEnter={() => this.showDelete()} onMouseLeave={() => this.hideDelete()}>
                         {this.state.showDelete
                             ?
-                                <img id='deleteImage' src={require('../../../Images/error.png')} onClick={() => this.deletePet(e.pet_id)}/>
+                                <img id='deleteImage' alt='Delete' src={require('../../../Images/error.png')} onClick={() => this.deletePet(e.pet_id)}/>
                             :
-                                <img id={`myPetImage${e.pet_image_exif}`} src={e.pet_image}/>
+                                <img id={`myPetImage${e.pet_image_exif}`} alt='My Pet' src={e.pet_image}/>
                         }
                         <h4>{e.pet_name}</h4>
                     </div>

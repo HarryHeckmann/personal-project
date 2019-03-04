@@ -38,6 +38,9 @@ class FavoritesColumn extends Component {
             .then(response => {
                 this.props.getFavoritePets()
             })
+            .catch(err => {
+                // console.log(err)
+            })
     }
     setRedirect(id){
         this.setState({petId: id}, () => {
@@ -58,10 +61,10 @@ class FavoritesColumn extends Component {
                     <div>
                     </div>
                 :
-                    <div key={i} className='favoritesPetCard' key={i} onMouseEnter={() => this.showDelete()} onMouseLeave={() => this.hideDelete()}>  
-                    <img id='favoriteImage' src={e.media.photos.photo[1].$t} onClick={() => this.setRedirect(e.id.$t)}/>
+                    <div key={i} className='favoritesPetCard' onMouseEnter={() => this.showDelete()} onMouseLeave={() => this.hideDelete()}>  
+                    <img id='favoriteImage' alt='Favorited Pet' src={e.media.photos.photo[1].$t} onClick={() => this.setRedirect(e.id.$t)}/>
                     <h4>{e.name.$t}</h4>
-                    <img id={this.state.showDelete ? 'favoriteDeleteImage' : 'favoriteDeleteImageHide'} src={require('../../Images/error.png')} onClick={() => this.deleteFavorite(e.id.$t)}/>
+                    <img id={this.state.showDelete ? 'favoriteDeleteImage' : 'favoriteDeleteImageHide'} alt='Delete Favorite' src={require('../../Images/error.png')} onClick={() => this.deleteFavorite(e.id.$t)}/>
                     </div>
         ))
         const adopted = []
@@ -95,9 +98,9 @@ class FavoritesColumn extends Component {
                         {favArray}
                         {adopted.map((e, i) => (
                             <div key ={i} className='favoritesPetCard' onMouseEnter={() => this.showDelete()} onMouseLeave={() => this.hideDelete()}>
-                                <img id='favoriteImage' src={require('../../Images/pet.png')} />
+                                <img id='favoriteImage' alt='Favorited Pet' src={require('../../Images/pet.png')} />
                                 <h3 style={{textAlign: 'center'}}>{e.name}'s Been <br></br> Adopted!</h3>
-                                <img id={this.state.showDelete ? 'favoriteDeleteImage' : 'favoriteDeleteImageHide'} src={require('../../Images/error.png')} onClick={() => this.deleteFavorite(e.id)}/>
+                                <img id={this.state.showDelete ? 'favoriteDeleteImage' : 'favoriteDeleteImageHide'} alt='Delete Favorite' src={require('../../Images/error.png')} onClick={() => this.deleteFavorite(e.id)}/>
                             </div>
                         ))}
                     </div>

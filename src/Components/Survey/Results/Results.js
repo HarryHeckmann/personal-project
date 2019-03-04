@@ -63,12 +63,12 @@ class Results extends Component {
                             })
                             const goodResult = []
                             if(goodMidArray.length){
-                                for(var i = 0; i < goodMidArray[0].length; i++){
-                                    var num = 0;
-                                    for(var i2 = 0; i2 < goodMidArray.length; i2++){ 
-                                    num += goodMidArray[i2][i];
+                                for(var j = 0; j < goodMidArray[0].length; j++){
+                                    var num2 = 0;
+                                    for(var j2 = 0; j2 < goodMidArray.length; j2++){ 
+                                    num2 += goodMidArray[j2][j];
                                     }
-                                    goodResult.push(num / goodMidArray.length);
+                                    goodResult.push(num2 / goodMidArray.length);
                                 }
                                 this.setState({goodArray: goodResult})
                             }
@@ -83,16 +83,19 @@ class Results extends Component {
                                 okayMidArray.push(arr)
                             })
                             const okayResult = []
-                            for(var i = 0; i < okayMidArray[0].length; i++){
-                                var num = 0;
-                                for(var i2 = 0; i2 < okayMidArray.length; i2++){ 
-                                num += okayMidArray[i2][i];
+                            for(var k = 0; k < okayMidArray[0].length; k++){
+                                var num3 = 0;
+                                for(var k2 = 0; k2 < okayMidArray.length; k2++){ 
+                                num3 += okayMidArray[k2][k];
                                 }
-                                okayResult.push(num / okayMidArray.length);
+                                okayResult.push(num3 / okayMidArray.length);
                             }
                             this.setState({okayArray: okayResult})
                         }
                     })
+                })
+                .catch(err => {
+                    // console.log(err)
                 })
         })
     }

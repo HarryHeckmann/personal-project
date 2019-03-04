@@ -6,7 +6,7 @@ module.exports = {
         const goodFitBreeds = []
         const illFitBreeds = []
         const okayFitBreeds = []
-        console.log(req.body)
+        // console.log(req.body)
         const results = req.body
         try {
             const db = req.app.get('db')
@@ -53,10 +53,10 @@ module.exports = {
                 else if(wrong >= 5){
                     illFitBreeds.push(breeds[i])
                 }
-                console.log(wrong)
+                // console.log(wrong)
             }
             
-            console.log(perfectFitBreeds)
+            // console.log(perfectFitBreeds)
             return res.status(200).json({perfectFitBreeds, goodFitBreeds, okayFitBreeds, illFitBreeds})
         }
         catch(err) {
@@ -71,13 +71,13 @@ module.exports = {
         try {
             const db = req.app.get('db')
             if(req.session.user){
-                console.log(req.body)
+                // console.log(req.body)
                 const pet = await db.update_favorited([req.session.user.id, req.body.id, req.body.name])
-                console.log(pet)
+                // console.log(pet)
                 return res.status(200).json(pet)
             }
             else{
-                console.log('womp')
+                // console.log('womp')
             }
         }
         catch(err){
@@ -92,7 +92,7 @@ module.exports = {
             if(req.session.user){
                 // console.log(req.body)
                 const pets = await db.get_favorited(req.session.user.id)
-                console.log(pets)
+                // console.log(pets)
                 return res.status(200).json(pets)
             }
             else{
@@ -106,7 +106,7 @@ module.exports = {
     },
 
     deleteFavorite: async (req, res) => {
-        console.log(req.params)
+        // console.log(req.params)
         const {id} = req.params
         try {
             const db = req.app.get('db')

@@ -39,7 +39,7 @@ class Profile extends Component {
         axios
             .get('/api/user')
             .then(response => {
-                console.log(response)
+                // console.log(response)
                 const user = response.data[0]
                 let str = []
                 let final = []
@@ -55,7 +55,7 @@ class Profile extends Component {
                 })
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err)
                 if(!this.state.username){
                     this.props.history.push("/")
                 }
@@ -78,7 +78,7 @@ class Profile extends Component {
             if(this.state.selectedFile){
                 const storageRef = firebase.storage().ref()
                 const imageFolderRef = storageRef.child('images/'+this.state.selectedFile.name)
-                const imageRef = storageRef.child(this.state.selectedFile.name)
+                // const imageRef = storageRef.child(this.state.selectedFile.name)
                 const pic = this.state.selectedFile
                 const metadata = {
                     name: this.state.selectedFile.name,
@@ -101,26 +101,26 @@ class Profile extends Component {
         var reader = new FileReader();
         reader.onload = function(event) {
           var view = new DataView(event.target.result);
-          if (view.getUint16(0, false) != 0xFFD8) return callback(-2);
+          if (view.getUint16(0, false) !== 0xFFD8) return callback(-2);
           var length = view.byteLength,
               offset = 2;
           while (offset < length) {
             var marker = view.getUint16(offset, false);
             offset += 2;
-            if (marker == 0xFFE1) {
-              if (view.getUint32(offset += 2, false) != 0x45786966) {
+            if (marker === 0xFFE1) {
+              if (view.getUint32(offset += 2, false) !== 0x45786966) {
                 return callback(-1);
               }
-              var little = view.getUint16(offset += 6, false) == 0x4949;
+              var little = view.getUint16(offset += 6, false) === 0x4949;
               offset += view.getUint32(offset + 4, little);
               var tags = view.getUint16(offset, little);
               offset += 2;
       
               for (var i = 0; i < tags; i++)
-                if (view.getUint16(offset + (i * 12), little) == 0x0112)
+                if (view.getUint16(offset + (i * 12), little) === 0x0112)
                   return callback(view.getUint16(offset + (i * 12) + 8, little));
             }
-            else if ((marker & 0xFF00) != 0xFF00) break;
+            else if ((marker & 0xFF00) !== 0xFF00) break;
             else offset += view.getUint16(offset, false);
           }
           return callback(-1);
@@ -168,6 +168,9 @@ class Profile extends Component {
             .then(response => {
                 this.props.history.push("/")
             })
+            .catch(err => {
+                
+            })
     }
 
     render(){
@@ -183,7 +186,7 @@ class Profile extends Component {
                 <div id='profile_main'>
                     <div id='profile_body'>
                         <div id={!this.state.editProfile ? 'profile_info' : 'profile_info_hide'}>
-                            <img id={`profilePic${profileEXIF}`} src={profileImg}/>
+                            <img id={`profilePic${profileEXIF}`} alt='Profile' src={profileImg}/>
                             <div className='text_info'>
                                 <h1>{firstname} {lastname}</h1>
                                 <h3>{city}</h3>
@@ -195,7 +198,7 @@ class Profile extends Component {
                         </div>
                         <form id={this.state.editProfile ? 'profile_info_edit' : 'profile_info_edit_hide'} onSubmit={(e) => this.editProfile(e)}>
                             <div id='imageEdit'>
-                                <img id={`profilePic${profileEXIF}`} src={profileImg}/>
+                                <img id={`profilePic${profileEXIF}`} alt='Profile' src={profileImg}/>
                                 <div id='imageInputDiv'>
                                     <input
                                         id='profileInputFile'

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Bar, Radar} from 'react-chartjs-2'
+import {Radar} from 'react-chartjs-2'
 import axios from 'axios'
 import {Link, Redirect} from 'react-router-dom'
 
@@ -39,11 +39,14 @@ class ResultsChart extends Component {
             .then(response => {
                 this.setState({loggedIn: true})
             })
+            .catch(err => {
+                // console.log(err)
+            })
     }
 
     updateList(list) {
         this.setState({displayedList: list})
-        console.log(list)
+        // console.log(list)
       }
 
     handleChange(e){
@@ -59,7 +62,7 @@ class ResultsChart extends Component {
                 this.checkLogin()
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err)
             })
     }
 
@@ -72,6 +75,9 @@ class ResultsChart extends Component {
             .then(response => {
                 // console.log(response.data)
                 this.setRedirect()
+            })
+            .catch(err => {
+                // console.log(err)
             })
     }
 
@@ -86,7 +92,7 @@ class ResultsChart extends Component {
     }
 
     render(){
-        {this.renderRedirect()}
+        this.renderRedirect()
         const data2 = {
             labels: ['Friendly With Dogs', 'Friendly With Pets', 'Affection','Size', 'Grooming', 'Vocality', 'Energy', 'Training', 'Exercise'],
             datasets: [
@@ -140,9 +146,9 @@ class ResultsChart extends Component {
                                     console.log(elems)
                                     }
                                 }
-                                options={{maintainAspectRatio: false}}
                                 // options={{scale:{ticks: {min: 1}}}}
                                 options={{
+                                    maintainAspectRatio: false,
                                     responsive: true,
                                     title: {
                                         display: true,
@@ -187,7 +193,7 @@ class ResultsChart extends Component {
                         {this.props.Best.map((e, i) => (
                             <div className='breedsDiv' key={i}>
                                 <h4 className='breedsDivh4'>{e.breed}</h4>
-                                <img className='breedImage' src={e.breed_image}/>
+                                <img className='breedImage' alt='Breed' src={e.breed_image}/>
                             </div>
                         ))}
                     </div>
@@ -198,7 +204,7 @@ class ResultsChart extends Component {
                         {this.props.Good.map((e, i) => (
                             <div className='breedsDiv' key={i}>
                                 <h4 className='breedsDivh4'>{e.breed}</h4>
-                                <img className='breedImage' src={e.breed_image}/>
+                                <img className='breedImage' alt='Breed' src={e.breed_image}/>
                             </div>
                         ))}
                     </div>
@@ -209,7 +215,7 @@ class ResultsChart extends Component {
                         {this.props.Okay.map((e, i) => (
                             <div className='breedsDiv' key={i}>
                                 <h4 className='breedsDivh4'>{e.breed}</h4>
-                                <img className='breedImage' src={e.breed_image}/>
+                                <img className='breedImage' alt='Breed' src={e.breed_image}/>
                             </div>
                         ))}
                     </div>

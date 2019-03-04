@@ -257,7 +257,7 @@ function reducer(state = initialState, action){
             pets: action.payload
         }
         default: {
-            console.log('hitting default')
+            // console.log('hitting default')
             return state
         }
     }

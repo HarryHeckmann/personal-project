@@ -194,51 +194,51 @@ background-color: rgb(37, 37, 37);
 
 #profilePic1 {
     /* margin-top: 5vh; */
-    width: 15vw;
+    height: 27vh;
     border-radius: 10%
 }
 #profilePic2 {
     /* margin-top: 5vh; */
-    width: 15vw;
+    height: 27vh;
     -webkit-transform:rotateY(180deg);
     border-radius: 10%
 }
 #profilePic3 {
     /* margin-top: 5vh; */
-    width: 15vw;
+    height: 27vh;
     -webkit-transform:rotate(180deg);
     border-radius: 10%
 }
 #profilePic4 {
     /* margin-top: 5vh; */
-    width: 15vw;
+    height: 27vh;
     -webkit-transform:rotateY(180deg);
     -webkit-transform:rotate(180deg);
     border-radius: 10%
 }
 #profilePic5 {
     /* margin-top: 5vh; */
-    width: 15vw;
+    height: 27vh;
     -webkit-transform:rotateY(180deg);
     -webkit-transform:rotate(-90deg);
     border-radius: 10%
 }
 #profilePic6 {
     /* margin-top: 5vh; */
-    width: 15vw;
+    height: 27vh;
     -webkit-transform:rotate(90deg);
     border-radius: 10%
 }
 #profilePic7 {
     /* margin-top: 5vh; */
-    width: 15vw;
+    height: 27vh;
     -webkit-transform:rotateY(180deg);
     -webkit-transform:rotate(90deg);
     border-radius: 10%
 }
 #profilePic8 {
     /* margin-top: 5vh; */
-    width: 15vw;
+    height: 27vh;
     -webkit-transform:rotate(-90deg);
     border-radius: 10%
 }
