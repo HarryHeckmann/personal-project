@@ -13,6 +13,8 @@ const ac = require('./Controllers/auth_controller')
 const uc = require('./Controllers/user_controller')
 const pc = require('./Controllers/pet_controller')
 
+app.use( express.static( `${__dirname}/../build` ) )
+
 const transport = {
     host: 'smtp.gmail.com',
     port: 465,
@@ -37,8 +39,6 @@ const transport = {
 
 app.use(json())
 app.use(cors())
-
-app.use( express.static( `${__dirname}/../build` ) )
 
 app.use(
     session({
@@ -83,6 +83,10 @@ app.delete('/api/deletepet/:id', uc.deletePet)
 
 
 .post('/api/contact/shelter', c.contactShelter)
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 app.listen(SERVERPORT, () => {
     console.log(`Listening on ${SERVERPORT}`)})
