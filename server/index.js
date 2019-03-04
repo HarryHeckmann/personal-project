@@ -1,5 +1,5 @@
 require('dotenv').config()
-
+const path = require('path'); // Usually moved to the start of fil
 const cors = require('cors')
 const express = require("express");
 const { json } = require("body-parser");
