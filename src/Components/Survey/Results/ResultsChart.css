@@ -68,19 +68,28 @@ background-color: rgb(37, 37, 37);
     border-radius: 9999em;
 }
 
-#breedsDiv {
-    display: flex;
+.breedsDiv {
+    /* display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    text-align: center;
+    text-align: center; */
+    padding-bottom: 20px;
+    /* padding-top: 40px; */
+    margin-top: 5px;
     border-bottom: 1px solid black;
+    border-top: 1px solid black;
 }
+
 .breedsDivh1{
     font-family: 'Playfair Display', serif;
     font-style: italic;
     text-decoration: underline;
+    /* position: sticky;
+    top: 0;
+    overflow: hidden; */
 }
+
 .breedsDivh4{
     text-align: center;
 }

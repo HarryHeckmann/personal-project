@@ -81,7 +81,7 @@ class Page1 extends Component {
                     </div>
                     <div id='survey_links_div1'>
                         <Link className='survey_links1' to='/survey/1'>Start Over</Link>
-                        <Link className='survey_links1' to='/survey/2'>Next</Link>
+                        <Link className='survey_links1' to='/survey/2'>Continue</Link>
                     </div>
                 </div>
             </div>
