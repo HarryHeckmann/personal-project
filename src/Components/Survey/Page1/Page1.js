@@ -74,10 +74,10 @@ class Page1 extends Component {
                         <button className={this.state.dogsClicked2 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedDogs(2)}>Of Course!</button>
                         <button className={this.state.dogsClicked1 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedDogs(1)}>Nope!</button>
                     </div>
-                    <h1>Do you own any other pets?</h1>
+                    <h1>Do you own other pets that aren't dogs?</h1>
                     <div className='surveyButtons1'>
-                        <button className={this.state.petsClicked2 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedPets(2)}>Call me Dr. Dolittle!</button>
-                        <button className={this.state.petsClicked1 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedPets(1)}>What am I, a zoo!?</button>
+                        <button className={this.state.petsClicked2 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedPets(2)}>Yep!</button>
+                        <button className={this.state.petsClicked1 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedPets(1)}>Nope!</button>
                     </div>
                     <div id='survey_links_div1'>
                         <Link className='survey_links1' to='/survey/1'>Start Over</Link>

@@ -85,7 +85,7 @@ class Page3 extends Component {
                 <div className='surveyDiv3'>
                     <h1>How often are you willing to groom your dog?</h1>
                     <div className='surveyButtons3'>
-                        <button className={this.state.groomingClicked1 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedGrooming(1)}>As little as possible</button>
+                        <button className={this.state.groomingClicked1 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedGrooming(1)}>I'd rather not have to</button>
                         <button className={this.state.groomingClicked2 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedGrooming(2)}>Regularly</button>
                         <button className={this.state.groomingClicked3 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedGrooming(3)}>All the time!</button>
                     </div>
