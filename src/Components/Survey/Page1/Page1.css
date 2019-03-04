@@ -1,7 +1,7 @@
 .wizard1 {
     width: 100vw;
     height: 100vh;
-    background-image: url('../../../Images/surveyBackground.jpg');
+    background-image: url('../../../Images/relaxing.jpg');
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -22,13 +22,14 @@
     font-family: 'Playfair Display', serif;
     /* font-style: italic; */
     text-align: center;
+    color: white
 }
 
 .surveyDiv1{
     margin-top: 25vh;
     /* height: 50vh; */
     width: 50vw;
-    background-image: radial-gradient(rgba(5,4,2,.3), rgba(5,4,2,0));
+    background-image: radial-gradient(rgba(5,4,2,.9), rgba(5,4,2,.1));
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -44,11 +45,12 @@
 }
 .surveyButton {
     background-color: rgba(5,4,2,0);
-    color: black;
-    border-color: black;
+    color: white;
+    border-color: white;
     border-radius: 9999em;
-    margin-left: 5vw;
-    margin-right: 5vw;
+    margin-top: 5px;
+    /* margin-left: 5vw;
+    margin-right: 5vw; */
     height: 50px;  
     width: 250px;
     align-self: center;
@@ -56,12 +58,13 @@
     font-size: 100%;
 }
 .surveyButtonClicked {
-    background-color: rgba(5,4,2,7);
-    color: white;
-    border-color: black;
+    background-color: white;
+    color: black;
+    border-color: white;
     border-radius: 9999em;
-    margin-left: 5vw;
-    margin-right: 5vw;
+    margin-top: 5px;
+    /* margin-left: 5vw;
+    margin-right: 5vw; */
     height: 50px;  
     width: 250px;
     align-self: center;
@@ -77,21 +80,21 @@
     justify-content: space-around;
     align-items: center;
 }
-.survey_links {
+.survey_links1 {
     align-self: center;
-    color: black;
+    color: white;
     text-decoration: none;
     font-weight: bold;
     font-size: 150%;
 }
-.survey_links:hover {
+.survey_links1:hover {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-weight: bold;
     font-size: 160%;
 }
-.survey_links:visited {
-    color: black;
+.survey_links1:visited {
+    color: white;
 }
 
 @media (max-width: 500px){

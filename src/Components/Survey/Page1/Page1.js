@@ -80,8 +80,8 @@ class Page1 extends Component {
                         <button className={this.state.petsClicked1 ? 'surveyButtonClicked' : 'surveyButton'} onClick={() => this.clickedPets(1)}>What am I, a zoo!?</button>
                     </div>
                     <div id='survey_links_div1'>
-                        <Link className='survey_links' to='/survey/1'>Start Over</Link>
-                        <Link className='survey_links' to='/survey/2'>Next</Link>
+                        <Link className='survey_links1' to='/survey/1'>Start Over</Link>
+                        <Link className='survey_links1' to='/survey/2'>Next</Link>
                     </div>
                 </div>
             </div>
