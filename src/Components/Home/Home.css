@@ -13,7 +13,7 @@
 #homeHeader {
     width: 100vw;
     background-color: rgba(5,4,2,0.08);
-    height: 15vh;
+    /* height: 15vh; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -182,11 +182,13 @@
         opacity: 0;
         transform: scaleY(0);
         width: 0;
+        height: 0;
     }
     50% {
         transform: scaleY(1);
         opacity: 0;
-        width: 55vw
+        width: 55vw;
+        height: 30vh;
     }
     100% {
         opacity: 1;
@@ -218,36 +220,139 @@
     0% {
         opacity: 1;
         transform: scaleY(1);
-        width: 55vw
+        width: 55vw;
+        height: 30vh
     }
     50% {
         transform: scaleY(1);
         width: 55vw;
+        height: 30vh;
         opacity: 0;
     }
     100% {
         opacity: 0;
         transform: scaleY(0);
         width: 0;
+        height: 10vh
+    }
+}
+
+@keyframes loginMobile {
+    0% {
+        opacity: 0;
+        transform: scaleY(0);
+        width: 0;
+        height: 0;
+    }
+    50% {
+        transform: scaleY(1);
+        opacity: 0;
+        width: 50vw;
+        height: 0;
+    }
+    100% {
+        opacity: 1;
+        height: 10vh;
+    }
+}
+
+@keyframes registerMobile {
+    0% {
+        opacity: 0;
+        transform: scaleY(0);
+        width: 0;
+        height: 0;
+    }
+    50% {
+        transform: scaleY(1);
+        opacity: 0;
+        width: 100vw;
+        height: 45vh;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes notLoginMobile {
+    0% {
+        opacity: 1;
+        transform: scaleY(1);
+        width: 50vw;
+        height: 10vh;
+    }
+    50% {
+        transform: scaleY(1);
+        width: 50vw;
+        height: 10vh;
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+        transform: scaleY(0);
+        width: 0;
+        height: 0;
+    }
+}
+
+@keyframes notRegisterMobile {
+    0% {
+        opacity: 1;
+        transform: scaleY(1);
+        /* width: 55vw; */
+        height: 45vh
+    }
+    50% {
+        transform: scaleY(1);
+        /* width: 55vw; */
+        height: 45vh;
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+        transform: scaleY(0);
+        width: 0;
+        height: 0vh
     }
 }
 
 @media (max-width: 750px){
+    #home{
+        height: 150vh;
+    }
     #homeHeader {
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: space-around;
         align-items: center;
-        height: 25vh;
+        /* height: 20vh; */
+    }
+    #authForms{
+        /* height: 25vh; */
+        flex-direction: column;
     }
     #register {
         width: 100vw;
+        height: 45vh;
+        animation: registerMobile 1.5s;
+        animation-fill-mode: forwards;
     }
     #notRegister {
-        height: 0;
+        animation: notRegisterMobile 1.5s;
+        animation-fill-mode: forwards;
     }
     #notLogin {
         height: 0;
+        animation: notLoginMobile 1.5s;
+        animation-fill-mode: forwards;
+    }
+    #login{
+        animation: loginMobile 1.5s;
+        animation-fill-mode: forwards;
+    }
+    .headerButton{
+        margin-top: 2vh;
+        margin-bottom: 2vh;
     }
   }
   @media (max-width: 380px){
@@ -258,7 +363,7 @@
         align-items: center;
         height: 32vh;
     }
-
+   
     #register {
         width: 100vw;
         height: 15vh;
