@@ -16,7 +16,7 @@ const pc = require('./Controllers/pet_controller')
 const transport = {
     host: 'smtp.gmail.com',
     // port: 587,
-    // secure: false,
+    secure: true,
     // requireTLS: true,
     auth: {
         user: MAIL_USER,
