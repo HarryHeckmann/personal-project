@@ -35,6 +35,7 @@
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-weight: 700;
+    font-size: 110%;
 }
 #logout_div {
     width: 80px;
@@ -207,10 +208,10 @@ background-color: rgb(37, 37, 37);
     position: relative;
     z-index: 0;
     height: 15vh;
-    
+    margin-left: 7vw;
+    margin-top: 5vh;
     /* opacity: 0; */
-    left: 25%;
-    top: 30%;
+    align-self: center;
 }
 #imageEditLogo:hover{
     opacity: 1;
