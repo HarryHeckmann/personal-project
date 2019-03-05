@@ -183,7 +183,7 @@ class Home extends Component {
             <div id='center'>
                 <h1 id='main_text'>Find your forever friend, today</h1>
                 <div id='clickDiv'>
-                    <Link id='click_here' to='survey/intro'>Find Out How</Link>
+                    <Link id='click_here' to='survey/intro'>Learn How</Link>
                 </div>
             </div>
         </div>
