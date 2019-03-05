@@ -48,6 +48,9 @@
     border-bottom: 1px solid black;
     height: 30vh;
 }
+#pets > h1 {
+    margin-bottom: 0;
+}
 #petInputFile {
     width: 10vw;
 }
@@ -141,16 +144,21 @@
     border-radius: 10%;
 }
 @media (max-width: 600px){
+    #pets{
+        height: 45vh;
+    }
     #plus {
         width: 50px;
         height: 50px;
     }
     #my_pets {
         width: 100vw;
+        /* height: 45vh; */
         align-items: center;
         justify-content: space-around;
     }
     #myPetsRow {
+        height: 30vh;
         overflow-x: visible;
         overflow-y: scroll;
     }

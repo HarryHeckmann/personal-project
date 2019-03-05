@@ -3,9 +3,7 @@
     width: 100vw;
     height: 100vh;
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
-    opacity: 0.95;
     display: flex;
     flex-direction: column;
 }
@@ -13,7 +11,7 @@
 #homeHeader {
     width: 100vw;
     background-color: rgba(5,4,2,0.08);
-    /* height: 15vh; */
+    height: 13vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,11 +38,12 @@
 } */
 .inputField{
     color: white;
-    background-color: rgba(5,4,2,0);
+    background-color: rgba(2,4,2,0.2);
     border: none;
     text-align: center;
     font-size: 100%;
     height: 30px;
+    border-radius: 9999em;
 }
 .inputField::placeholder{
     color: white;
@@ -52,8 +51,9 @@
 
 #login {
     width: 50vw;
-    height: 10vh;
+    height: 13vh;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
@@ -63,7 +63,7 @@
 
 #notLogin {
     width: 50vw;
-    height: 10vh;
+    height: 13vh;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -109,7 +109,7 @@
 .button {
     background-color: rgba(5,4,2,0);
     color: white;
-    border-color: white;
+    border: 2px solid white;
     border-radius: 9999em;
     height: 30px;  
     width: 80px;
@@ -188,7 +188,7 @@
         transform: scaleY(1);
         opacity: 0;
         width: 55vw;
-        height: 30vh;
+        height: 13vh;
     }
     100% {
         opacity: 1;
@@ -221,19 +221,19 @@
         opacity: 1;
         transform: scaleY(1);
         width: 55vw;
-        height: 30vh
+        height: 13vh
     }
     50% {
         transform: scaleY(1);
         width: 55vw;
-        height: 30vh;
+        height: 13vh;
         opacity: 0;
     }
     100% {
         opacity: 0;
         transform: scaleY(0);
         width: 0;
-        height: 10vh
+        height: 0vh
     }
 }
 
@@ -252,7 +252,8 @@
     }
     100% {
         opacity: 1;
-        height: 10vh;
+        height: 20vh;
+        width: 50vw;
     }
 }
 
@@ -267,7 +268,7 @@
         transform: scaleY(1);
         opacity: 0;
         width: 100vw;
-        height: 45vh;
+        height: 25vh;
     }
     100% {
         opacity: 1;
@@ -279,12 +280,12 @@
         opacity: 1;
         transform: scaleY(1);
         width: 50vw;
-        height: 10vh;
+        height: 20vh;
     }
     50% {
         transform: scaleY(1);
         width: 50vw;
-        height: 10vh;
+        height: 20vh;
         opacity: 0;
     }
     100% {
@@ -300,12 +301,12 @@
         opacity: 1;
         transform: scaleY(1);
         /* width: 55vw; */
-        height: 45vh
+        height: 25vh
     }
     50% {
         transform: scaleY(1);
         /* width: 55vw; */
-        height: 45vh;
+        height: 25vh;
         opacity: 0;
     }
     100% {
@@ -316,7 +317,7 @@
     }
 }
 
-@media (max-width: 750px){
+@media (max-width: 800px){
     #home{
         height: 150vh;
     }
@@ -325,7 +326,9 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        /* height: 20vh; */
+        height: auto;
+        padding-bottom: 2vh;
+        padding-top: 2vh;
     }
     #authForms{
         /* height: 25vh; */
@@ -333,7 +336,7 @@
     }
     #register {
         width: 100vw;
-        height: 45vh;
+        height: 25vh;
         animation: registerMobile 1.5s;
         animation-fill-mode: forwards;
     }
@@ -361,12 +364,12 @@
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
-        height: 32vh;
+        height: none;
     }
    
     #register {
         width: 100vw;
-        height: 15vh;
+        height: 35vh;
     }
     #notRegister {
         height: 0;
