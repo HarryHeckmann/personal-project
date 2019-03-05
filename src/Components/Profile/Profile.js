@@ -29,6 +29,7 @@ class Profile extends Component {
             selectedFile: '',
 
             editProfile: false,
+            editProfileImage: false,
             editFavorites: false,
 
             isLoading: false
@@ -85,7 +86,9 @@ class Profile extends Component {
                 }
                 imageFolderRef.put(pic, metadata).then(function(snapshot){
                     imageFolderRef.getDownloadURL().then(url => {
-                        this.setState({uploadImage: url, isLoading: false})
+                        this.setState({uploadImage: url, isLoading: false, editProfileImage: false}, () => {
+                            this.editProfile()
+                        })
                         
                     })
                 }.bind(this))
@@ -130,7 +133,9 @@ class Profile extends Component {
 
     editProfile(e){
         this.setState({editProfile: false})
-        e.preventDefault()
+        if(e){
+            e.preventDefault()
+        }
         const newValues = {
             profile_image_exif: this.state.uploadEXIF,
             profile_img: this.state.uploadImage,
@@ -151,6 +156,9 @@ class Profile extends Component {
                     this.props.history.push("/")
                 }
             })
+    }
+    editProfileImage(){
+        this.setState({editProfileImage: !this.state.editProfileImage})
     }
     handleSubmit(e){
         this.setState({editProfile: false})
@@ -185,85 +193,92 @@ class Profile extends Component {
                 </header>
                 <div id='profile_main'>
                     <div id='profile_body'>
-                        <div id={!this.state.editProfile ? 'profile_info' : 'profile_info_hide'}>
-                            <img id={`profilePic${profileEXIF}`} alt='Profile' src={profileImg}/>
-                            <div className='text_info'>
+                        <div id='profile_info'>
+                            <div id='profileImageDiv'>
+                                <img id={`profilePic${profileEXIF}`} alt='Profile' src={profileImg} onClick={() => this.editProfileImage()}/>
+                                <img id='imageEditLogo' alt='edit' src={require('../../Images/edit.png')}/>
+                            </div>
+                            <div id={this.state.editProfileImage ? 'imageInputDiv' : 'imageInputDivHide'}>
+                                {this.state.isLoading 
+                                    ?
+                                        <Loader 
+                                            type="Ball-Triangle"
+                                            color="black"
+                                            height="100"	
+                                            width="100"
+                                        />
+                                    :
+                                        <div id='imageInputDiv'>
+                                            <input
+                                                id='profileInputFile'
+                                                name='selectedFile' 
+                                                type='file' 
+                                                placeholder='Profile Image'
+                                                onChange={e => this.handleFileChange(e)}
+                                            ></input>
+                                            <button type='button' className='profile_button' onClick={(e) => this.handleUpload(e)}>Add Image</button>
+                                        </div>
+                                }
+                            </div>
+                            <div className={this.state.editProfileImage || this.state.editProfile ? 'text_info_hide' : 'text_info'}>
                                 <h1>{firstname} {lastname}</h1>
                                 <h3>{city}</h3>
                                 <h3>{email}</h3>
                                 <h3 id='bestBreedsList'>My best breeds are {best_breeds}</h3>
                             </div>
-                            <button className='profile_button' onClick={() => this.edit()}>Edit</button>
+                            {this.state.editProfileImage || this.state.editProfile
+                                ?
+                                    <div></div>
+                                :
+                                    <button className='profile_button' onClick={() => this.edit()}>Edit</button>
+                            }
+                            
+                            <form id={this.state.editProfile ? 'profile_info_edit' : 'profile_info_edit_hide'} onSubmit={(e) => this.editProfile(e)}>
+                                <div className='text_info'>
+                                    <input
+                                        className='profileInputField'
+                                        name='firstname'
+                                        required 
+                                        type='text' 
+                                        value={firstname}
+                                        placeholder='First Name'
+                                        onChange={e => this.handleChange(e)}
+                                    ></input>
+                                    <input
+                                        className='profileInputField'
+                                        name='lastname'
+                                        required 
+                                        type='text' 
+                                        value={lastname}
+                                        placeholder='Last Name'
+                                        onChange={e => this.handleChange(e)}
+                                    ></input>
+                                    <input
+                                        className='profileInputField'
+                                        name='city'
+                                        required 
+                                        type='text' 
+                                        value={city}
+                                        placeholder='City'
+                                        onChange={e => this.handleChange(e)}
+                                    ></input>
+                                    <input
+                                        className='profileInputField'
+                                        name='email'
+                                        required 
+                                        type='text' 
+                                        value={email}
+                                        placeholder='Email'
+                                        onChange={e => this.handleChange(e)}
+                                    ></input>
+                                </div>
+                                <div>
+                                    <button className='profile_button' onClick={(e) => this.discard(e)}>Discard</button>
+                                    <input type='submit' className='profile_button' value='Update'></input>
+                                </div>
+                            </form>
                             {/* <button className='profile_button' id='bestButton' onClick={() => this.searchBest()}>Search For your Best Breeds</button> */}
                         </div>
-                        <form id={this.state.editProfile ? 'profile_info_edit' : 'profile_info_edit_hide'} onSubmit={(e) => this.editProfile(e)}>
-                            <div id='imageEdit'>
-                                <img id={`profilePic${profileEXIF}`} alt='Profile' src={profileImg}/>
-                                <div id='imageInputDiv'>
-                                    <input
-                                        id='profileInputFile'
-                                        name='selectedFile' 
-                                        type='file' 
-                                        placeholder='Profile Image'
-                                        onChange={e => this.handleFileChange(e)}
-                                    ></input>
-                                    <button type='button' className='profile_button' onClick={(e) => this.handleUpload(e)}>Add Image</button>
-                                </div>
-                            </div>
-                            <div className='text_info'>
-                                <input
-                                    className='profileInputField'
-                                    name='firstname'
-                                    required 
-                                    type='text' 
-                                    value={firstname}
-                                    placeholder='First Name'
-                                    onChange={e => this.handleChange(e)}
-                                ></input>
-                                <input
-                                    className='profileInputField'
-                                    name='lastname'
-                                    required 
-                                    type='text' 
-                                    value={lastname}
-                                    placeholder='Last Name'
-                                    onChange={e => this.handleChange(e)}
-                                ></input>
-                                <input
-                                    className='profileInputField'
-                                    name='city'
-                                    required 
-                                    type='text' 
-                                    value={city}
-                                    placeholder='City'
-                                    onChange={e => this.handleChange(e)}
-                                ></input>
-                                <input
-                                    className='profileInputField'
-                                    name='email'
-                                    required 
-                                    type='text' 
-                                    value={email}
-                                    placeholder='Email'
-                                    onChange={e => this.handleChange(e)}
-                                ></input>
-                            </div>
-                            {this.state.isLoading 
-                            
-                                ?
-                                    <Loader 
-                                        type="Ball-Triangle"
-                                        color="black"
-                                        height="100"	
-                                        width="100"
-                                    />
-                                :
-                                    <div>
-                                        <button className='profile_button' onClick={(e) => this.discard(e)}>Discard</button>
-                                        <input type='submit' className='profile_button' value='Update'></input>
-                                    </div>
-                            }
-                        </form>
                         <MyPets/>
                         <div id='profile_bottom_links'>
                             <div className='profile_bottom_link_div'>

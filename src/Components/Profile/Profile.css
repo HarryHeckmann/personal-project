@@ -61,7 +61,7 @@
     justify-content: flex-start;
     align-items: center;
     width: 70vw;
-    height: 30vh;
+    height: 50vh;
 }
 #profile_info_hide {
     display: none;
@@ -86,20 +86,28 @@
     align-items: center;
 }
 #imageInputDiv {
+    width: 80vw;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
     height: 15vh;
+}
+#imageInputDivHide{
+    display: none;
 }
 #profileInputFile {
     width: 10vw;
 }
 .profileInputField {
-    color: black;
-    background-color: rgba(5,4,2,0);
+    margin-top: 10px;
+    color: white;
+    background-color: rgba(2,4,2,0.2);
     border: none;
+    text-align: center;
     font-size: 120%;
     height: 30px;
+    border-radius: 9999em;
 }
 .profile_button {
     height: 30px;
@@ -130,7 +138,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    width: 35vw;
+    width: 30vw;
+    height: 45vh;
+}
+.text_info_hide{
+    display: none;
 }
 #bestBreedsList {
     margin-right: 3vw;
@@ -166,7 +178,7 @@ background-color: rgb(37, 37, 37);
 }
 
 #profile_bottom_links {
-    height: 20vh;
+    height: 15vh;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -190,71 +202,157 @@ background-color: rgb(37, 37, 37);
 .profile_link:visited {
     color: black;
 }
+#imageEditLogo{
+    background-color: rgb(255,255,255, .7);
+    position: relative;
+    z-index: 0;
+    height: 15vh;
+    
+    /* opacity: 0; */
+    left: 25%;
+    top: 30%;
+}
+#imageEditLogo:hover{
+    opacity: 1;
+}
+#profileImageDiv{
+    height: 30vh;
+    width: 25vw;
+    padding-left: 3vw;
+    margin-bottom: 7vh;
+}
 
 
 #profilePic1 {
+    /* left: ; */
+    position: absolute;
+    z-index: 1;
     /* margin-top: 5vh; */
     height: 27vh;
+    width: inherit;
     border-radius: 10%
 }
+#profilePic1:hover{
+    opacity: .2;
+}
+
 #profilePic2 {
-    /* margin-top: 5vh; */
+    position: absolute;
+    z-index: 1;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
     height: 27vh;
     -webkit-transform:rotateY(180deg);
     border-radius: 10%
+}
+#profilePic2:hover{
+    opacity: .2;
 }
 #profilePic3 {
-    /* margin-top: 5vh; */
+    position: absolute;
+    z-index: 1;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
     height: 27vh;
     -webkit-transform:rotate(180deg);
     border-radius: 10%
+}
+#profilePic3:hover{
+    opacity: .2;
 }
 #profilePic4 {
-    /* margin-top: 5vh; */
+    position: absolute;
+    z-index: 1;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
     height: 27vh;
     -webkit-transform:rotateY(180deg);
     -webkit-transform:rotate(180deg);
     border-radius: 10%
 }
+#profilePic4:hover{
+    opacity: .2;
+}
 #profilePic5 {
-    /* margin-top: 5vh; */
+    position: absolute;
+    z-index: 1;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
     height: 27vh;
     -webkit-transform:rotateY(180deg);
     -webkit-transform:rotate(-90deg);
     border-radius: 10%
+}
+#profilePic5:hover{
+    opacity: .2;
 }
 #profilePic6 {
-    /* margin-top: 5vh; */
+    position: absolute;
+    z-index: 1;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
     height: 27vh;
     -webkit-transform:rotate(90deg);
     border-radius: 10%
 }
+#profilePic6:hover{
+    opacity: .2;
+}
 #profilePic7 {
-    /* margin-top: 5vh; */
+    position: absolute;
+    z-index: 1;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
     height: 27vh;
     -webkit-transform:rotateY(180deg);
     -webkit-transform:rotate(90deg);
     border-radius: 10%
 }
+#profilePic7:hover{
+    opacity: .2;
+}
 #profilePic8 {
-    /* margin-top: 5vh; */
+    position: absolute;
+    z-index: 1;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
     height: 27vh;
     -webkit-transform:rotate(-90deg);
     border-radius: 10%
+}
+#profilePic8:hover{
+    opacity: .2;
 }
 
 @media (max-width: 850px){
     #ProfileHeader > h2 {
-        font-size: 150%
+        font-size: 120%;
+        margin-bottom: 0;
     }
     #ProfileHeader{
         height: 10vh;
+        width: 100vw;
+        justify-content: space-around;
+        border-bottom: 1px solid black;
+        position: fixed;
+        background-image: url('../../Images/WF8zph1.jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: 10;
     }
-  }
-
+    #profile_main{
+        margin-top: 10vh;
+        overflow: auto;
+        z-index: 5;
+    }
+    #profile_body{
+        height: 250vh;
+    }
+}
   @media (max-width: 600px){
     #profile_page{
-        height: 200vh;
+        height: 250vh;
     }
     #profile_main {
         display: flex;
@@ -262,12 +360,23 @@ background-color: rgb(37, 37, 37);
     }
     #profile_body{
         width: 100vw;
-        height: 150vh;
+        height: 200vh;
     }
     #profile_info{
-        height: 100vh;
+        height: 160vh;
         width: 100vw;
         flex-direction: column;
+        align-items: center;
+    }
+    #profileImageDiv{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 5vh;
+    }
+    #imageEditLogo{
+        position: absolute;
+        margin-top: 8vw;
     }
     #profile_info_edit{
         flex-direction: column;
@@ -282,7 +391,7 @@ background-color: rgb(37, 37, 37);
         justify-content: space-around;
     }
     #imageInputDiv{
-        width: 35vw;
+        width: 80vw;
     }
     #profileInputFile{
         width: 30vw;
@@ -313,52 +422,62 @@ background-color: rgb(37, 37, 37);
         padding-top: 0;
     }
     #profilePic1 {
-        width: 50vw;
-        margin-top: 5vh;
+
+        height: 27vh;
+        width: auto;
+        /* left: 20vw; */
+        /* margin-top: 5vh; */
         margin-bottom: 5vh;
     }
     #profilePic2 {
-        width: 50vw;
-        margin-top: 5vh;
+        
+        height: 27vh;
+        width: auto;
         margin-bottom: 5vh;
         -webkit-transform:rotateY(180deg);
     }
     #profilePic3 {
-        width: 50vw;
-        margin-top: 5vh;
+        
+        height: 27vh;
+        width: auto;
         margin-bottom: 5vh;
         -webkit-transform:rotate(180deg);
     }
     #profilePic4 {
-        width: 50vw;
-        margin-top: 5vh;
+        
+        height: 27vh;
+        width: auto;
         margin-bottom: 5vh;
         -webkit-transform:rotateY(180deg);
         -webkit-transform:rotate(180deg);
     }
     #profilePic5 {
-        width: 50vw;
-        margin-top: 5vh;
+        
+        height: 27vh;
+        width: auto;
         margin-bottom: 5vh;
         -webkit-transform:rotateY(180deg);
         -webkit-transform:rotate(-90deg);
     }
     #profilePic6 {
-        width: 50vw;
-        margin-top: 5vh;
+        
+        height: 27vh;
+        width: auto;
         margin-bottom: 5vh;
         -webkit-transform:rotate(90deg);
     }
     #profilePic7 {
-        width: 50vw;
-        margin-top: 5vh;
+        
+        height: 27vh;
+        width: auto;
         margin-bottom: 5vh;
         -webkit-transform:rotateY(180deg);
         -webkit-transform:rotate(90deg);
     }
     #profilePic8 {
-        width: 50vw;
-        margin-top: 5vh;
+        
+        height: 27vh;
+        width: auto;
         margin-bottom: 5vh;
         -webkit-transform:rotate(-90deg);
     }
