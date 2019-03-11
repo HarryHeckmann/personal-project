@@ -102,7 +102,7 @@
 
 @media (max-width: 500px){
     .wizard2{
-        height: 150vh;
+        height: 160vh;
         justify-content: flex-start;
     }
     .surveyDiv2{
@@ -116,11 +116,14 @@
     }
     #survey_links_div2{
         width: 90vw;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
     }
     .surveyButtons1{
         width: 90vw;
     }
     .survey_links2{
+        
         font-size: 120%;
     }
 }

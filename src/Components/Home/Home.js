@@ -28,6 +28,9 @@ class Home extends Component {
             new64: null
         }
     }
+    componentDidMount(){
+        window.scrollTo(0, 0)
+    }
 
     setRedirect(){
         // console.log(this.state.redirect)

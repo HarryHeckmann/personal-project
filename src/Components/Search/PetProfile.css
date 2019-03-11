@@ -93,6 +93,10 @@
     margin: 5px;
     /* padding: 0px; */
 }
+.petProfileInfo > h1 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+}
 #leftTop{
     width: 45vw;
     display: flex;
@@ -240,8 +244,7 @@ background-color: rgb(37, 37, 37);
 
 @media (max-width: 450px){
     #PetProfileFull{
-        height: 200vh;
-        
+        height: 210vh;
     }
     #PetProfileLoginDiv{
         width: 80vw;
@@ -263,12 +266,13 @@ background-color: rgb(37, 37, 37);
         align-items: center;
     }
     #fullDiv{
-        height: 180vh;
+        height: 200vh;
         display: flex;
         flex-direction: column;
         /* justify-content: flex-start; */
     }
     #petProfileHeader{
+        padding-top: 3vh;
         margin-top: 3vh;
         height: 40vh;
     }
@@ -278,13 +282,27 @@ background-color: rgb(37, 37, 37);
         align-items: center;
     }
     #centerLeft{
-        width: 80vw;
+        width: 90vw;
     }
     .petProfileInfo > h2{
-        font-size: 150%
+        font-size: 130%;
+        text-align: left;
+    }
+    .petProfileInfo > h1 {
+        margin-bottom: 0;
+    }
+    .petProfileInfo {
+        margin-bottom: 2vh;
+        border-bottom: 1px solid black;
+        padding-bottom: 3vh;
+    }
+    .contactButton {
+        padding-bottom: 2vh;
     }
     #leftTop{
         width: 80vw;
+        flex-direction: column;
+
     }
     #leftBottom{
         width: 80vw;
@@ -307,7 +325,13 @@ background-color: rgb(37, 37, 37);
         margin-bottom: 3vh;
     }
     #PetProfileFooter{
-        margin-top: 3vh;
+        padding-top: 3vh;
+        margin-top: 10vh;
+        height: 40vh;
+        border-top: 1px solid black;
+    }
+    #PetProfileFooter > h2 {
+        margin-top: 0;
     }
     .otherShelterPetDiv{
         align-items: center;

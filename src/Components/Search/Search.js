@@ -62,6 +62,10 @@ class Search extends Component{
             })
     }
 
+    componentDidMount(){
+        window.scrollTo(0, 0)
+    }
+    
     render(){
         return(
             <div id={this.props.pets.length ? 'SearchPage' : 'SearchPageEmpty'}>

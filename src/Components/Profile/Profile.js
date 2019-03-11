@@ -37,6 +37,7 @@ class Profile extends Component {
     }
   
     componentDidMount(){
+        window.scrollTo(0, 0)
         axios
             .get('/api/user')
             .then(response => {
