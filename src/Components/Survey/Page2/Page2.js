@@ -56,6 +56,7 @@ class Page2 extends Component {
         }
     }
     componentDidMount(){
+        window.scrollTo(0, 0)
         if(this.props.affection === 1){
             this.setState({affectionClicked1: true})
         }

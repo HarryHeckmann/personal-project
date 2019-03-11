@@ -98,6 +98,9 @@
 }
 
 @media (max-width: 500px){
+    .wizard1 {
+        height: 150vh;
+    }
     .surveyDiv1{
         /* margin-top: 25vh; */
         width: 90vw;
@@ -108,6 +111,8 @@
         
     }
     #survey_links_div1{
+        margin-top: 10vh;
+        margin-bottom: 5vh;
         width: 90vw;
     }
     .surveyButtons1{
@@ -115,10 +120,13 @@
     }
 }
 @media (max-height: 500px){
+    .wizard1 {
+        height: 150vh;
+    }
     .surveyDiv1{
         /* margin-top: 25vh; */
         width: 90vw;
-        height: 80vh;;
+        height: 80vh;
     }
     .surveyDiv1 > h1{
         font-size: 130%;

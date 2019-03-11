@@ -51,6 +51,7 @@ class Page3 extends Component {
         }
     }
     componentDidMount(){
+        window.scrollTo(0, 0)
         if(this.props.grooming === 1){
             this.setState({groomingClicked1: true})
         }

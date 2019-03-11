@@ -74,7 +74,7 @@
 
 #register {
     width: 55vw;
-    height: 13vh;;
+    height: 13vh;
     /* padding-left: 15vw;
     padding-right: 15vw; */
     display: flex;
@@ -82,7 +82,7 @@
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    overflow: hidden;
+    /* overflow: hidden; */
     animation: register 1.5s;
     animation-fill-mode: forwards;
 }
@@ -268,10 +268,11 @@
         transform: scaleY(1);
         opacity: 0;
         width: 100vw;
-        height: 25vh;
+        height: 50vh;
     }
     100% {
         opacity: 1;
+        height: 50vh;
     }
 }
 
@@ -319,7 +320,7 @@
 
 @media (max-width: 800px){
     #home{
-        height: 150vh;
+        height: 200vh;
     }
     #homeHeader {
         display: flex;
@@ -330,13 +331,17 @@
         padding-bottom: 2vh;
         padding-top: 2vh;
     }
+    .headerButton {
+        height: 8vh;
+    }
     #authForms{
-        /* height: 25vh; */
+        /* height: 58vh; */
         flex-direction: column;
+        justify-content: center;
     }
     #register {
         width: 100vw;
-        height: 25vh;
+        /* height: 50vh; */
         animation: registerMobile 1.5s;
         animation-fill-mode: forwards;
     }

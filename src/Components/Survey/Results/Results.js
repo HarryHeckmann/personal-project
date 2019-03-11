@@ -22,6 +22,7 @@ class Results extends Component {
         }
     }
     componentDidMount(){
+        window.scrollTo(0, 0)
         this.setState({results: [this.props.friendly_dogs, this.props.friendly_pets, this.props.affection, this.props.size, this.props.grooming, this.props.vocality, this.props.energy, this.props.training, this.props.exercise]}, () => {
             console.log(this.state.results)
             axios

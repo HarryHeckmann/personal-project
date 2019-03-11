@@ -71,6 +71,7 @@ class Page4 extends Component {
     }
 
     componentDidMount(){
+        window.scrollTo(0, 0)
         if(this.props.energy === 1){
             this.setState({energyClicked1: true})
         }
