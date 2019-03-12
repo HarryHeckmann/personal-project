@@ -9,7 +9,7 @@ const key = process.env.API_KEY
 module.exports ={
     getBreeds: (req, res) => {
         axios
-            .get(`http://api.petfinder.com/breed.list?key=${key}&animal=dog&format=json`)
+            .get(`https://api.petfinder.com/breed.list?key=${key}&animal=dog&format=json`)
             
             .then(response => {
                 let json = CircularJSON.stringify(response.data.petfinder.breeds)
@@ -26,7 +26,7 @@ module.exports ={
         // console.log(req.body)
         // console.log(animal)
         axios
-            .get(`http://api.petfinder.com/pet.find?key=${key}&animal=${animal}&breed=${breed}&size=${size}&sex=${sex}&location=${location}&age=${age}&offset=${offset}&count=20&format=json`)
+            .get(`https://api.petfinder.com/pet.find?key=${key}&animal=${animal}&breed=${breed}&size=${size}&sex=${sex}&location=${location}&age=${age}&offset=${offset}&count=20&format=json`)
             .then(response => {
                 let json = CircularJSON.stringify(response.data.petfinder.pets.pet)
                 // let woof = CircularJSON.stringify(response.data.petfinder.pets)
@@ -42,7 +42,7 @@ module.exports ={
     getPet: (req, res) => {
         console.log(req.params.id)
         axios
-            .get(`http://api.petfinder.com/pet.get?key=${key}&id=${req.params.id}&format=json`)
+            .get(`https://api.petfinder.com/pet.get?key=${key}&id=${req.params.id}&format=json`)
             .then(response => {
                 // console.log(response.data)
                 // let json = CircularJSON.stringify(response.data.petfinder.pet)
@@ -63,7 +63,7 @@ module.exports ={
     getShelterInfo: (req, res) => {
         console.log(req.params.id)
         axios
-            .get(`http://api.petfinder.com/shelter.get?key=${key}&id=${req.params.id}&format=json`)
+            .get(`https://api.petfinder.com/shelter.get?key=${key}&id=${req.params.id}&format=json`)
             .then(response => {
                 console.log(response.data)
                 let json = CircularJSON.stringify(response.data.petfinder.shelter)
@@ -78,7 +78,7 @@ module.exports ={
 
     getShelterPets: (req, res) => {
         axios
-            .get(`http://api.petfinder.com/shelter.getPets?key=${key}&id=${req.params.id}&count=5&format=json`)
+            .get(`https://api.petfinder.com/shelter.getPets?key=${key}&id=${req.params.id}&count=5&format=json`)
             .then(response => {
                 let json = CircularJSON.stringify(response.data.petfinder.pets.pet)
                 // let woof = CircularJSON.stringify(response.data.petfinder.pets)
