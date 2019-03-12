@@ -29,13 +29,14 @@
     margin-top: 25vh;
     /* height: 50vh; */
     width: 50vw;
-    background-image: radial-gradient(rgba(5,4,2,.9), rgba(5,4,2,.1));
+    background-image: radial-gradient(rgba(5,4,2,.9), rgba(5,4,2,.3));
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
 .surveyButtons1{
+    outline: none;
     width: 50vw;
     display: flex;
     flex-direction: row;
@@ -44,6 +45,7 @@
     flex-wrap: wrap;
 }
 .surveyButton {
+    outline: none;
     background-color: rgba(5,4,2,0);
     color: white;
     border-color: white;
@@ -58,6 +60,7 @@
     font-size: 100%;
 }
 .surveyButtonClicked {
+    outline: none;
     background-color: white;
     color: black;
     border-color: white;
@@ -73,6 +76,7 @@
 }
 
 #survey_links_div1 {
+    outline: none;
     height: 5vh;
     width: 50vw;
     display: flex;
@@ -81,6 +85,7 @@
     align-items: center;
 }
 .survey_links1 {
+    outline: none;
     align-self: center;
     color: white;
     text-decoration: none;

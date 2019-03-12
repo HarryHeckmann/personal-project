@@ -98,9 +98,11 @@
     display: none;
 }
 #profileInputFile {
+    outline: none;
     width: 10vw;
 }
 .profileInputField {
+    outline: none;
     margin-top: 10px;
     color: white;
     background-color: rgba(2,4,2,0.2);
@@ -111,6 +113,7 @@
     border-radius: 9999em;
 }
 .profile_button {
+    outline: none;
     height: 30px;
     width: 70px;
     border: 2px solid black;

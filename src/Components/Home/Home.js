@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom'
 import axios from 'axios';
+import firebase from '../../firebase.js'
 import {Link} from 'react-router-dom'
 
 import './Home.css'
@@ -51,7 +52,14 @@ class Home extends Component {
         axios 
             .post('/auth/login', {username, password})
             .then(user => {
-                this.setState({username: '', password: ''})
+                this.setState({username: '', password: ''}, () => {
+                    firebase.auth().signInAnonymously().catch(function(error) {
+                        // Handle Errors here.
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+                       console.log(errorCode, errorMessage)
+                      })
+                })
                 this.setRedirect()
             })
             .catch(err => {

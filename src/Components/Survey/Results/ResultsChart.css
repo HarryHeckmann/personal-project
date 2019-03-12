@@ -114,6 +114,7 @@ background-color: rgb(37, 37, 37);
     height: 192vh;
 }
 .resultsInputField{
+    outline: none;
     text-align: center;
     background-color: rgba(5,4,2,0);
     border: 2px solid black;

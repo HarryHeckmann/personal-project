@@ -175,6 +175,12 @@ class Profile extends Component {
         axios
             .delete('/auth/logout')
             .then(response => {
+                firebase.auth().signOut().catch(function(error) {
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    console.log(errorCode, errorMessage)
+                  });
                 this.props.history.push("/")
             })
             .catch(err => {

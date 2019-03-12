@@ -37,6 +37,7 @@ h2{
 }
 
 .intro_links {
+    outline: none;
     align-self: center;
     color: white;
     text-decoration: none;
