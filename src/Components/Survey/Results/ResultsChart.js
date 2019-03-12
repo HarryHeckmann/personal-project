@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {Radar} from 'react-chartjs-2'
 import axios from 'axios'
 import {Link, Redirect} from 'react-router-dom'
+import firebase from '../../../firebase.js'
+import 'firebase/auth'
 
 import './ResultsChart.css'
 
@@ -58,7 +60,15 @@ class ResultsChart extends Component {
         axios 
             .post('/auth/login', {username, password})
             .then(user => {
-                this.setState({username: '', password: ''})
+                this.setState({username: '', password: ''}, () => {
+                    firebase.auth().signInAnonymously().catch(function(error) {
+                        // Handle Errors here.
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+                       console.log(errorCode, errorMessage)
+                       
+                      })
+                })
                 this.checkLogin()
             })
             .catch(err => {

@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {Link, Redirect} from 'react-router-dom'
 import axios from 'axios';
+import firebase from '../../firebase.js'
+import 'firebase/auth'
 
 import './PetProfile.css'
 
@@ -134,7 +136,15 @@ class PetProfile extends Component {
         axios 
             .post('/auth/login', {username, password})
             .then(user => {
-                this.setState({username: '', password: ''}, () => {console.log(this.state.username)})
+                this.setState({username: '', password: ''}, () => {
+                    firebase.auth().signInAnonymously().catch(function(error) {
+                        // Handle Errors here.
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+                       console.log(errorCode, errorMessage)
+                       
+                      })
+                })
                 this.checkLogin()
             })
             .catch(err => {
