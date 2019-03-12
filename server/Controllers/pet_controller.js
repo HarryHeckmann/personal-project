@@ -12,7 +12,7 @@ module.exports = {
             const db = req.app.get('db')
             const breeds = await db.get_dog_breeds()
             for(i=0;i<breeds.length;i++){
-                console.log(breeds[i])
+                // console.log(breeds[i])
                 let wrong = 0
                 if(breeds[i].friendly_dogs !== +results[0]){
                     wrong++
@@ -41,10 +41,10 @@ module.exports = {
                 if(breeds[i].exercise > +results[8]){
                     wrong++
                 }
-                if(wrong == 0){
+                if(wrong <= 1){
                     perfectFitBreeds.push(breeds[i])
                 }
-                else if(wrong <= 2){
+                else if(wrong <= 3){
                     goodFitBreeds.push(breeds[i])
                 }
                 else if(wrong < 5){
@@ -53,10 +53,10 @@ module.exports = {
                 else if(wrong >= 5){
                     illFitBreeds.push(breeds[i])
                 }
-                // console.log(wrong)
+                console.log(wrong)
             }
             
-            // console.log(perfectFitBreeds)
+            console.log(perfectFitBreeds)
             return res.status(200).json({perfectFitBreeds, goodFitBreeds, okayFitBreeds, illFitBreeds})
         }
         catch(err) {

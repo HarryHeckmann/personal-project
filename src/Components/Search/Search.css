@@ -28,6 +28,7 @@
     top: 0;
 }
 .searchLinkDiv{
+    outline: none;
     padding-left: 10px;
     padding-right: 10px;
     display: flex;
@@ -39,6 +40,7 @@
 }
 
 .searchLink{
+    outline: none;
     align-self: center;
     color: black;
     text-decoration: none;
@@ -47,11 +49,13 @@
     color: black;
 }
 .SearchLabel{
+    outline: none;
     border: 2px solid black;
     padding: 10px;
     border-radius: 999em;
 }
 #locationId{
+    outline: none;
     background-color: rgba(5,4,2,0);
     border: none;
 }
@@ -60,6 +64,7 @@
 }
 
 #SearchButton{
+    outline: none;
     background-color: rgba(5,4,2,0);
     border: 2px solid black;
     padding: 12px;
@@ -84,6 +89,7 @@
 }
 
 .selectClass{
+    outline: none;
     position: relative;
     background-color: rgba(5,4,2,0);
     border: none;
