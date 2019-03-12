@@ -125,7 +125,7 @@ class Home extends Component {
                         className='inputField'
                         name='password'
                         required 
-                        type='text' 
+                        type='password' 
                         value={password}
                         placeholder='Password'
                         onChange={e => this.handleChange(e)}
@@ -149,7 +149,7 @@ class Home extends Component {
                         className='inputField'
                         name='password'
                         required 
-                        type='text' 
+                        type='password' 
                         value={password}
                         placeholder='Password'
                         onChange={e => this.handleChange(e)}

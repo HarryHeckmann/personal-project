@@ -257,7 +257,7 @@ class ResultsChart extends Component {
                                         className='resultsInputField'
                                         name='password'
                                         required 
-                                        type='text' 
+                                        type='password' 
                                         value={this.state.password}
                                         placeholder='Password'
                                         onChange={e => this.handleChange(e)}
