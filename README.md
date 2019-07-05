@@ -1,4 +1,4 @@
-###### BestPet.tech
+# BestPet.tech
 
 BestPet.tech is an online application that allows users to discover fitting dog breeds for their lifestyle, search for real adoptable pets from shelters and foster orginizations, and save those pets to their profile..
 
